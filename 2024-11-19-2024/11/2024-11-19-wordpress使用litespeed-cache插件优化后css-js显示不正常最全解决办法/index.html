@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法 | 打包地</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="不少小伙伴在使用WordPress的LiteSpeed Cache插件进行网站优化的时候，会发现网站无法正常显示，一般是缺少CSS或者JS等问题，这如何解决呢？其实这是一个常见的问题，严格来说这有可能不是LSCache插件的问题。相反，它更可能是一个单一的CSS或JavaScript文件的问题，它与最小化或合并过程冲突导致。接下来搬主题就分享一下WordPress使用LiteSpeed Cach">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WordPress使用LiteSpeed Cache插件优化后CSS&#x2F;JS显示不正常最全解决办法">
+<meta property="og:url" content="http://example.com/2024-11-19-2024/11/2024-11-19-wordpress%E4%BD%BF%E7%94%A8litespeed-cache%E6%8F%92%E4%BB%B6%E4%BC%98%E5%8C%96%E5%90%8Ecss-js%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E5%B8%B8%E6%9C%80%E5%85%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">
+<meta property="og:site_name" content="打包地">
+<meta property="og:description" content="不少小伙伴在使用WordPress的LiteSpeed Cache插件进行网站优化的时候，会发现网站无法正常显示，一般是缺少CSS或者JS等问题，这如何解决呢？其实这是一个常见的问题，严格来说这有可能不是LSCache插件的问题。相反，它更可能是一个单一的CSS或JavaScript文件的问题，它与最小化或合并过程冲突导致。接下来搬主题就分享一下WordPress使用LiteSpeed Cach">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp">
+<meta property="article:published_time" content="2024-11-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-12T12:30:59.014Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="打包地,小姐姐,外星,转载,技术文章">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法",
+  "url": "http://example.com/2024-11-19-2024/11/2024-11-19-wordpress%E4%BD%BF%E7%94%A8litespeed-cache%E6%8F%92%E4%BB%B6%E4%BC%98%E5%8C%96%E5%90%8Ecss-js%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E5%B8%B8%E6%9C%80%E5%85%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html",
+  "image": "https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp",
+  "datePublished": "2024-11-19T00:00:00.000Z",
+  "dateModified": "2024-12-12T12:30:59.014Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp"><link rel="canonical" href="http://example.com/2024-11-19-2024/11/2024-11-19-wordpress%E4%BD%BF%E7%94%A8litespeed-cache%E6%8F%92%E4%BB%B6%E4%BC%98%E5%8C%96%E5%90%8Ecss-js%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E5%B8%B8%E6%9C%80%E5%85%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://bing.img.run/1366x768.php);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp" alt="Logo"><span class="site-name">打包地</span></a><a class="nav-page-title" href="/"><span class="site-name">WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-19T00:00:00.000Z" title="发表于 2024-11-19 08:00:00">2024-11-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-12T12:30:59.014Z" title="更新于 2024-12-12 20:30:59">2024-12-12</time></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><img src="/images/20210627134928125.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图"></p>
+<p>不少小伙伴在使用<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/15">WordPress</a>的<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/119">LiteSpeed Cache</a>插件进行网站优化的时候，会发现网站无法正常显示，一般是缺少CSS或者JS等问题，这如何解决呢？其实这是一个常见的问题，严格来说这有可能不是LSCache插件的问题。相反，它更可能是一个单一的CSS或JavaScript文件的问题，它与最小化或合并过程冲突导致。接下来搬主题就分享一下<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/15">WordPress</a>使用<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/119">LiteSpeed Cache</a>插件优化后CSS&#x2F;JS显示不正常最全解决办法。</p>
+<p>试试下面的步骤来确定CSS和JavaScript的错误：</p>
+<ol>
+<li><p>关闭优化：从WordPress仪表板，导航到LiteSpeed Cache &gt; Page Optimization。点击CSS设置标签，将所有的CSS优化功能设置为关闭。单击JS设置标签，将所有JS优化功能设置为关闭。</p>
+</li>
+<li><p>清除缓存：导航至LiteSpeed Cache &gt; Toolbox &gt; Purge并按下Purge All按钮。</p>
+</li>
+<li><p>检查你的网站：重新加载页面。它仍然看起来显示不正常吗？</p>
+</li>
+</ol>
+<p>如果看起来还是显示不正常，那么你的问题就不在LSCache插件上。</p>
+<p>如果有一些变化或者显示又好一点了，那就是您的网站上有JavaScript或CSS与LSCache的某些优化功能不兼容。本篇文章搬主题将帮助您找到有问题的文件，并将其排除在优化之外。</p>
+<h2 id="一、查找显示不正常及冲突原因"><a href="#一、查找显示不正常及冲突原因" class="headerlink" title="一、查找显示不正常及冲突原因"></a>一、查找显示不正常及冲突原因</h2><h3 id="1、验证它是否是一个优化问题"><a href="#1、验证它是否是一个优化问题" class="headerlink" title="1、验证它是否是一个优化问题"></a>1、验证它是否是一个优化问题</h3><p><img src="/images/20210627134937851.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图1" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图1"></p>
+<p>在我们费尽心思找问题之前，让我们确定这确实是一个优化问题。</p>
+<p>首先在没有启用任何JS或CSS优化的情况下查看你的网站，在链接的末尾加上<code>/?LSCWP_CTRL=before_optm</code>。</p>
+<p>举例</p>
+<blockquote>
+<p>对于<code>www.banzhuti.com</code>，使用<code>www.banzhuti.com/?LSCWP_CTRL=before_optm</code>，查看没有优化的页面。</p>
+</blockquote>
+<p>在没有优化的情况下，网站看起来如何？</p>
+<h4 id="a、它看起来仍然很糟糕"><a href="#a、它看起来仍然很糟糕" class="headerlink" title="a、它看起来仍然很糟糕"></a>a、它看起来仍然很糟糕</h4><p>如果您的网站仍然不能正常显示，那么问题就不在LSCache的优化功能上。</p>
+<p>如果您完全关闭LSCache会怎样？网站看起来是否正常？如果是的话，那就是LSCache的其他功能干扰了您的网站。</p>
+<p>如果关闭了LSCache，网站还是一团糟，那么这个问题就与您网站的其他功能有关，那么有可能是你的主机问题或者主题问题。</p>
+<h4 id="b、现在看起来正常"><a href="#b、现在看起来正常" class="headerlink" title="b、现在看起来正常"></a>b、现在看起来正常</h4><p>这证实了问题出在优化功能的某个地方。现在你有两个选择。</p>
+<ol>
+<li><p>永远关闭CSS和JS的优化功能，并清除缓存。这是一个简单的解决方案，如果你选择这样做，即使不启用优化功能，你的网站仍然可以从缓存中大大受益。记住，你不必使用Combine或Minify优化来使用LSCache!</p>
+</li>
+<li><p>把这些选项重新打开，做一些故障诊断，找到有问题的文件，并把该文件排除在优化之外。如果你想走这条路，请继续进行下一个步骤。</p>
+</li>
+</ol>
+<h3 id="2、识别是CSS还是JavaScript问题"><a href="#2、识别是CSS还是JavaScript问题" class="headerlink" title="2、识别是CSS还是JavaScript问题"></a>2、识别是CSS还是JavaScript问题</h3><p>找到问题文件的第一步是确定我们所看到的是一个JavaScript问题还是一个CSS问题。</p>
+<p>让我们先检查一下JavaScript：</p>
+<ol>
+<li><p>检查与JS相关的优化功能是否被启用，CSS功能是否被禁用。</p>
+</li>
+<li><p>清除缓存，如果你在第一步中启用&#x2F;禁用了任何东西。</p>
+</li>
+<li><p>查看页面。它看起来如何？</p>
+</li>
+<li><p>如果很乱，那么你的某个JS文件就有问题。跳到查找和排除。</p>
+</li>
+<li><p>如果它很好，那么你的JS文件也很好，你可以继续检查CSS。</p>
+</li>
+</ol>
+<p>如果不是JavaScript导致的问题，那么可能是CSS。让我们来验证一下。</p>
+<ol>
+<li><p>禁用与JS相关的优化功能，并重新启用CSS功能。</p>
+</li>
+<li><p>再次清除缓存。</p>
+</li>
+<li><p>查看该页面。它看起来怎么样？</p>
+</li>
+<li><p>如果很乱，证明你的一个CSS文件有问题。</p>
+</li>
+</ol>
+<p>现在你知道是CSS还是JS的问题了，你需要找到导致问题的具体文件。</p>
+<h3 id="3、找到并排除有问题的文件"><a href="#3、找到并排除有问题的文件" class="headerlink" title="3、找到并排除有问题的文件"></a>3、找到并排除有问题的文件</h3><blockquote>
+<p>提示在这些说明中，我们将假设你有一个CSS文件造成了麻烦。如果你的问题实际上是与JavaScript有关，你仍然可以遵循这些相同的步骤。只要想象一下，说明中说 “JS “的地方都是 “CSS”。</p>
+</blockquote>
+<p>为了找到出错的文件，首先我们需要得到一个所有可能的CSS（或JS）文件的列表。一旦完成，我们将从优化中排除整个文件列表，然后逐一重新引入这些文件，直到我们找到罪魁祸首。</p>
+<h4 id="获取列表"><a href="#获取列表" class="headerlink" title="获取列表"></a>获取列表</h4><p><img src="/images/20210627134943460.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图2" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图2"></p>
+<ol>
+<li><p>在您的URL末尾加上<code>/?LSCWP_CTRL=before_optm</code>，在禁用优化的情况下访问您的网站。这可以确保你得到的是原始CSS文件的列表，而不是LiteSpeed生成的版本。</p>
+</li>
+<li><p>使用浏览器的 “开发工具”，访问 “网络 “选项卡，并点击 “CSS”，只查看CSS文件。</p>
+</li>
+<li><p>重新加载该页面。你应该看到该页面使用的所有CSS文件的列表，列在名称栏中。</p>
+</li>
+<li><p>把这些文件列成一个清单。你将不得不把它们全部排除在优化之外，如下一步所述。</p>
+</li>
+</ol>
+<p>如果你需要查看任何一个CSS文件的完整路径，点击该文件的名称，然后点击头文件。你会发现所选文件的完整位置被列为请求URL。</p>
+<h4 id="测试列表"><a href="#测试列表" class="headerlink" title="测试列表"></a>测试列表</h4><p><img src="/images/20210627134951950.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图3" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图3"></p>
+<ol>
+<li><p>启用所有你想使用的优化功能。</p>
+</li>
+<li><p>将所有的CSS文件排除在优化之外。导航至LiteSpeed Cache &gt; 页面优化 &gt; 调整，并从您的列表中输入文件，每行一个，在CSS排除框中。</p>
+</li>
+<li><p>清除缓存并检查网站。它应该能够正确显示。</p>
+</li>
+<li><p>从排除列表中删除其中一个CSS文件，并清除缓存。</p>
+</li>
+<li><p>检查该网站。</p>
+<ul>
+<li><p>如果它看起来仍然正常，那么你刚刚删除的那个文件就不是有问题的文件。</p>
+</li>
+<li><p>如果网站看起来坏了，那么你就知道你已经找到了一个有问题的CSS文件。把它放回盒子里，让它留在那里。</p>
+</li>
+<li><p>如果还有更多未被选中的文件，请重复步骤4。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>在这个过程结束时，你的网站应该看起来应该会正常显示，所有你想使用的优化功能都应该被启用，而且你应该有一个或多个有问题的CSS或JS文件被放在CSS排除或JS排除框中，并被排除在未来的优化之外。</p>
+<h2 id="二、其他问题处理"><a href="#二、其他问题处理" class="headerlink" title="二、其他问题处理"></a>二、其他问题处理</h2><h3 id="1、硬盘空间被快速填满"><a href="#1、硬盘空间被快速填满" class="headerlink" title="1、硬盘空间被快速填满"></a>1、硬盘空间被快速填满</h3><p>一些插件可能会生成带有随机字符串的CSS或JavaScript。如果启用了CSS合并或JS合并，这种随机字符串的存在将导致为网站的每个页面创建一个新的组合文件。如果网站有一个单独的移动视图，那么将为网站的每个页面创建两个合并文件。对于每一个额外的缓冲区，将创建另一组合并文件。你可以想象，这并不理想，而且有可能会填满你的服务器空间。</p>
+<p>要停止这种行为，你必须排除随机的CSS或JS被合并。</p>
+<h4 id="a、查找和排除随机字符串"><a href="#a、查找和排除随机字符串" class="headerlink" title="a、查找和排除随机字符串"></a>a、查找和排除随机字符串</h4><ol>
+<li><p>在两个独立的浏览器或隐身窗口中访问你的网站，在域名的后面加上<code>/?LSCWP_CTRL=before_optm</code>（如<code>example.com/?LSCWP_CTRL=before_optm</code>）。</p>
+</li>
+<li><p>在每个窗口中查看页面源代码</p>
+</li>
+<li><p>将每个源代码复制并粘贴到一个差异检查器网站（如<a target="_blank" rel="noopener" href="https://www.diffchecker.com/%EF%BC%89%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%AF%94%E8%BE%83">https://www.diffchecker.com/）并进行比较</a></p>
+</li>
+<li><p>你应该看到有几行CSS或JS突出显示。这就是两个页面加载的不同之处，并表明随机字符串的位置。</p>
+</li>
+<li><p>据推测，该字符串将有一个共同部分（例如，<code>abc_12345</code>和<code>abc_67890</code>，共同部分是<code>abc_</code>）。弄清楚你的页面是什么。</p>
+</li>
+<li><p>根据情况在CSS排除或JS排除中输入随机字符串的共同部分。</p>
+</li>
+<li><p>清除所有的CSS&#x2F;JS</p>
+</li>
+</ol>
+<p><strong>举例</strong></p>
+<p>在下图中，突出显示的区域都包括一个以.tdi_开头、以随机字符组结尾的CSS id（一个窗口为<code>2_35c</code>，另一个为<code>2_5f5</code>）。</p>
+<p><img src="/images/20210627134958395.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图4" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图4"></p>
+<p>你会在CSS优化中排除<code>.tdi_</code>这个字符串。找到随机字符串的另一种方法是使用相同的分离窗口差异检查方法，比较一个页面的组合CSS或JS文件。如果你关闭了minification，这是最简单的。</p>
+<p><strong>举例</strong></p>
+<p>继续上一个例子中的同一个网站，下面的图片显示了在不同的窗口中加载组合CSS文件时的差异。在这个例子中，你看到了更多关于tdi_的变化：<code>tdi_49_013</code>和<code>tdi_49_5d0</code>。</p>
+<p><img src="/images/20210627135004610.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图5" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图5"></p>
+<p>这表明排除<code>.tdi_</code>的决定是正确的。</p>
+<h3 id="2、更新后的CSS没有正确地重新加载"><a href="#2、更新后的CSS没有正确地重新加载" class="headerlink" title="2、更新后的CSS没有正确地重新加载"></a>2、更新后的CSS没有正确地重新加载</h3><p>其实最有可能的是，这不是LSCache的问题，因为LSCWP不对静态文件进行缓存。</p>
+<p>如果你的主题的CSS在更新后没有被正确加载，请检查你的浏览器缓存。重新加载是否有效？或者说你的网站服务器前有CDN或反向代理吗，比如Cloudflare？这些缓存机制可能需要被清除。</p>
+<h3 id="3、关键CSS未加载"><a href="#3、关键CSS未加载" class="headerlink" title="3、关键CSS未加载"></a>3、关键CSS未加载</h3><p>首先，请确保我们所有的IP在你的服务器、你的<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/15">WordPress</a>安全防护插件（如果有的话）、或你网站上的其他安全设备（如CDN&#x2F;应用层防火墙）上都被列入白名单。你可以在这里找到需要白名单的IP。如果在这之后仍然不能工作，看看下面的情况。</p>
+<ol>
+<li><p>检查<code>wp-content/litespeed/ccss/</code>目录中是否有任何CSS文件，并检查是否有任何CSS文件被生成。该目录中应该为你的<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/15">WordPress</a>网站上的每一个文章类型生成文件。</p>
+</li>
+<li><p>如果CSS文件不存在或者CCSS文件夹不存在，请等待cron的执行。cron会从我们的云服务器上生成CCSS。</p>
+</li>
+<li><p>如果CSS文件存在并且是有效的，请在管理栏的LSCache菜单中做一个Purge All – LScache选项。新的CSS不会被包含在旧的缓存页面中。</p>
+</li>
+<li><p>如果CSS文件包含ccss-timeout，这意味着当我们试图生成关键CSS时，与你的服务器的通信超时了。在这种情况下，请手动删除该CSS文件，并清除所有-LScache，这样就可以重新生成。</p>
+</li>
+<li><p>如果CSS文件包含语法错误，那么你的某个CSS文件就包含了一个错误。你可以像这样缩小实际有错误的CSS文件的范围。</p>
+<ul>
+<li><p>关闭CSS合并和最小化功能</p>
+</li>
+<li><p>清除所有和清除关键的CSS</p>
+</li>
+<li><p>尝试重新生成CCSS。在<code>wp-content/litespeed/ccss/</code>中生成的下一个CSS文件应该显示出有语法错误的真正CSS文件。</p>
+</li>
+<li><p>修复所指的CSS文件中的语法错误，并清除关键CSS。</p>
+</li>
+<li><p>现在再重新启用CSS Minify和CSS Combine。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="4、仍然看到启用了关键CSS的FOUC"><a href="#4、仍然看到启用了关键CSS的FOUC" class="headerlink" title="4、仍然看到启用了关键CSS的FOUC"></a>4、仍然看到启用了关键CSS的FOUC</h3><p>启用 “生成关键CSS”（CCSS）功能应该是为了消除 “网站加载时无样式内容的闪烁”（FOUC），那么为什么有时你仍然会看到它，即使该设置被配置为ON？</p>
+<p><img src="/images/20210627135010362.jpg" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图6" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图6"></p>
+<p>因为当启用异步加载CSS时，你网站的CSS将与HTML同时加载。因此，任何在相关的CSS之前加载的内容都会被渲染成没有样式的，就像这张截图一样。</p>
+<p><img src="/images/20210627135015255.jpg" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图7" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图7"></p>
+<p>生成关键CSS功能的目的是阻止这种行为。它将重要的CSS样式规则内嵌到页面的HTML中，以便这些规则在内容加载之前被执行。</p>
+<p>但有时，你可能会注意到没有样式的内容，即使启用了生成关键CSS。</p>
+<p>原因是：</p>
+<p>当CCSS没有被内嵌到页面的HTML中时，就会发生FOUC。</p>
+<p>当一个页面显示为无样式时，检查源代码。你会看到与此类似的东西：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style id=&quot;litespeed-optm-css-rules&quot;&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在下图中，它是第4行红色标记的区域。</p>
+<p><img src="/images/20210627135021499.jpg" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图8" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图8"></p>
+<p><code>&lt;style&gt;</code>标签在那里，但它们是空的，这意味着CCSS已经启用，但规则还没有生成&#x2F;插入到页面中。</p>
+<p><strong>可能的解释</strong></p>
+<p>那么，为什么CCSS还没有被插入到页面中呢？</p>
+<p>生成Critical CSS需要几秒钟，如果你把Generate Critical CSS in the Background设置为ON，LSCache就会把页面添加到一个基于cron的队列中，这样CCSS就会在稍后被计算。因此，可能会出现在CCSS可用之前加载页面的情况，这就导致了FOUC。</p>
+<p><strong>请注意，相同类型的页面共享相同的CCSS。例如，如果你有post1、post2和post3，当你访问post1时，将产生CCSS。然后，当访问post2和post3时，该CCSS将存在并准备使用。</strong></p>
+<p><strong>解决方案</strong></p>
+<p>最简单的解决方案是将 “在后台生成关键性CSS “设置为 “关闭”。在前台生成CCSS确实需要第一个访问者等待几秒钟，但它消除了FOUC问题。</p>
+<p>否则，可以尝试在生成CCSS规则后清除所有 – LSCache。这将允许LSCache将CCSS插入到生成CCSS之前已经被缓存的页面。</p>
+<p><img src="/images/20210627135026230.jpg" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图9" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图9"></p>
+<p><strong>验证</strong></p>
+<p>当CCSS被正确插入时，你会看到规则被插入<code>&lt;style&gt;</code>标签之间，如下图中的红线所示。</p>
+<p><img src="/images/20210627135032510.jpg" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图10" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图10"></p>
+<h3 id="5、调试关键CSS生成"><a href="#5、调试关键CSS生成" class="headerlink" title="5、调试关键CSS生成"></a>5、调试关键CSS生成</h3><p>如果你已经验证了CCSS未能生成，这可能是由于语法错误造成的。有几种方法可以在你的CSS中寻找这种错误。</p>
+<h4 id="方法1：QUIC-Cloud仪表板"><a href="#方法1：QUIC-Cloud仪表板" class="headerlink" title="方法1：QUIC.Cloud仪表板"></a>方法1：<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/116">QUIC.Cloud</a>仪表板</h4><p>如果你已经将你的网站使用<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/116">QUIC.Cloud</a>，你可以在<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/116">QUIC.Cloud</a>仪表板上检查。导航到CCSS选项卡，并在最近请求区域寻找任何警告，像这样：</p>
+<p><img src="/images/20210627135036218.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图11" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图11"></p>
+<p>在这个例子中，明确列出了一个CSS语法错误，以及出现错误的CSS文件的路径和错误的描述（Unclosed block）。修正这个错误，CCSS就可以正常工作了。</p>
+<h4 id="方法2：你的文件系统"><a href="#方法2：你的文件系统" class="headerlink" title="方法2：你的文件系统"></a>方法2：你的文件系统</h4><p>如果你没有将你的网站使用<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/116">QUIC.Cloud</a>，你可以直接检查你的文件系统。通过FTP或控制面板的文件管理器导航到<code>/wp-content/litespeed/ccss</code>目录。查看该目录中的CSS文件。其中一个文件应该包含一个语法错误。</p>
+<p><img src="/images/20210627135041785.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图12" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图12"></p>
+<p>在这个例子中，home.CSS给出了Unclosed block语法错误，并告诉我们在哪里可以找到要修复的文件。</p>
+<h4 id="方法3：HTML源代码"><a href="#方法3：HTML源代码" class="headerlink" title="方法3：HTML源代码"></a>方法3：HTML源代码</h4><p>最后，你可以检查HTML源代码，尽管这种方法不像前两种方法那样可靠，也不那么受欢迎。</p>
+<p><img src="/images/20210627135046351.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图13" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图13"></p>
+<p>在这个例子中，你可以看到在你的 关键CSS 应该被插入的地方显示了<code>Unclosed block</code>的错误。</p>
+<h4 id="寻找原始CSS文件"><a href="#寻找原始CSS文件" class="headerlink" title="寻找原始CSS文件"></a>寻找原始CSS文件</h4><p>不管使用什么方法，你可能发现了这样的情况：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*CssSyntaxError: /wp-content/litespeed/cssjs/5aaa0.css:1:1: Unclosed block*/</span><br></pre></td></tr></table></figure>
+
+<p><code>/wp-content/litespeed/cssjs/5aaa0.css</code>是导致问题的文件，但这并不是原始的CSS文件。你在<code>/wp-content/litespeed/</code>目录中发现的任何文件都是由LiteSpeed Cache插件生成的文件。</p>
+<p>在这种情况下，它是通过CSS Combine和&#x2F;或CSS Minify功能生成的优化CSS文件。我们无法修复生成文件中的语法错误。我们需要从源头上修复它。</p>
+<p>因此要找到原始的源CSS，你需要关闭优化并再次检查。</p>
+<p>接下来导航到 “页面优化”&gt;”CSS”，将 “CSS合并”设置为 “关闭”，”CSS最小化 “设置为 “关闭”。保存你的修改。</p>
+<p><img src="/images/20210627135051478.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图14" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图14"></p>
+<p>导航至工具箱&gt;清理，执行全部清理和全部清理–CCSS，或从管理栏中进行，如图所示。<a href="javascript:;"></a></p>
+<p><img src="/images/20210627135056814.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图15" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图15"></p>
+<p>访问该网页，以便重新生成CCSS。使用你第一次使用的任何方法来重新检查CCSS，并寻找语法错误。<a href="javascript:;"></a></p>
+<p><img src="/images/20210627135101378.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图16" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图16"></p>
+<blockquote>
+<p>小提示CCSS的生成是有时间限制的，以避免服务器过载。如果你不能马上让你的CCSS重新生成，请等待几分钟后再试。</p>
+</blockquote>
+<p>一旦CCSS重新生成，你的错误检查应该显示类似以下内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*CssSyntaxError: /wp-includes/css/dist/block-library/style.min.css:1:1: Unclosed block*/</span><br></pre></td></tr></table></figure>
+
+<p>这对你更有用，因为它是原始的CSS文件，你应该能够自己修复。或者，至少，你应该能够联系到向你提供该文件的主题作者或插件作者。</p>
+<p>如果你不确定这个CSS来自哪里，文件名应该会给你一个提示。如果它是来自一个插件，其路径应该是<code>/wp-content/plugins/plugin-name/path/file.css</code>。主题的CSS应该看起来像<code>/wp-content/themes/theme-name/path/file.css</code>。</p>
+<p><strong>注意：</strong></p>
+<p>为了说明这个问题，我们故意破坏了一个<a target="_blank" rel="noopener" href="https://www.banzhuti.com/tag/15">WordPress</a>的默认CSS文件来触发一个语法错误。通常情况下，<code>/wp-includes/css/dist/block-library/style.min.css</code>不会是一个有问题的文件。</p>
+<h3 id="6、绕过AJAX的优化"><a href="#6、绕过AJAX的优化" class="headerlink" title="6、绕过AJAX的优化"></a>6、绕过AJAX的优化</h3><p>如果网站存在冲突，需要在AJAX中绕过优化功能，你可以在主题的functions.php中添加一些代码，或者在使用AJAX时调用相应的过滤器。</p>
+<p>在主题的<code>functions.php</code> 文件加入</p>
+<p>将以下内容添加到你的主题的 <code>functions.php</code> 文件中: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defined( &#x27;DOING_AJAX&#x27; ) &amp;&amp; add_filter( &#x27;litespeed_can_optm&#x27;, &#x27;__return_false&#x27; );</span><br></pre></td></tr></table></figure>
+
+<h4 id="调用筛选器"><a href="#调用筛选器" class="headerlink" title="调用筛选器"></a>调用筛选器</h4><p>当使用AJAX时，你可以调用上述筛选器，并设置返回false。</p>
+<h3 id="7、DevTools加载SourceMap失败"><a href="#7、DevTools加载SourceMap失败" class="headerlink" title="7、DevTools加载SourceMap失败"></a>7、DevTools加载SourceMap失败</h3><p>有的时候经过优化后，Chrome浏览器有时可能会在其开发者工具中显示类似以下的信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DevTools failed to load SourceMap: Could not load content for https://domain.com/wp-content/litespeed/cssjs/xxxx.js.map: HTTP error: status code 404 , net :: ERR_HTTP_RESPONSE_CODE_FAILURE</span><br></pre></td></tr></table></figure>
+
+<p>不要担心，这绝对是正常的。该工具正试图为一个已被粉碎的JS或CSS文件加载资源图，以便它可以不被粉碎。当然，这个文件并不存在，所以它返回一个404错误。</p>
+<p><img src="/images/20210627135108107.png" alt="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图17" title="WordPress使用LiteSpeed Cache插件优化后CSS/JS显示不正常最全解决办法插图17"></p>
+<p>你可以忽略这个错误。它不会以任何方式影响你的网站。</p>
+<p><a target="_blank" rel="noopener" href="https://www.banzhuti.com/wordpress-litespeed-cache-css-js-display-error.html">WordPress使用LiteSpeed Cache插件优化后CSS&#x2F;JS显示不正常最全解决办法 - 搬主题</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024-11-19-2024/11/2024-11-19-wordpress%E4%BD%BF%E7%94%A8litespeed-cache%E6%8F%92%E4%BB%B6%E4%BC%98%E5%8C%96%E5%90%8Ecss-js%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E5%B8%B8%E6%9C%80%E5%85%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">http://example.com/2024-11-19-2024/11/2024-11-19-wordpress%E4%BD%BF%E7%94%A8litespeed-cache%E6%8F%92%E4%BB%B6%E4%BC%98%E5%8C%96%E5%90%8Ecss-js%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E5%B8%B8%E6%9C%80%E5%85%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">打包地</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description">打包地,小姐姐,外星,转载,技术文章</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%9F%A5%E6%89%BE%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E5%B8%B8%E5%8F%8A%E5%86%B2%E7%AA%81%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">一、查找显示不正常及冲突原因</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E9%AA%8C%E8%AF%81%E5%AE%83%E6%98%AF%E5%90%A6%E6%98%AF%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">1、验证它是否是一个优化问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a%E3%80%81%E5%AE%83%E7%9C%8B%E8%B5%B7%E6%9D%A5%E4%BB%8D%E7%84%B6%E5%BE%88%E7%B3%9F%E7%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">a、它看起来仍然很糟糕</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b%E3%80%81%E7%8E%B0%E5%9C%A8%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%AD%A3%E5%B8%B8"><span class="toc-number">1.1.2.</span> <span class="toc-text">b、现在看起来正常</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E8%AF%86%E5%88%AB%E6%98%AFCSS%E8%BF%98%E6%98%AFJavaScript%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">2、识别是CSS还是JavaScript问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%89%BE%E5%88%B0%E5%B9%B6%E6%8E%92%E9%99%A4%E6%9C%89%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">3、找到并排除有问题的文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">获取列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">测试列表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">二、其他问题处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4%E8%A2%AB%E5%BF%AB%E9%80%9F%E5%A1%AB%E6%BB%A1"><span class="toc-number">2.1.</span> <span class="toc-text">1、硬盘空间被快速填满</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a%E3%80%81%E6%9F%A5%E6%89%BE%E5%92%8C%E6%8E%92%E9%99%A4%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.1.1.</span> <span class="toc-text">a、查找和排除随机字符串</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%9B%B4%E6%96%B0%E5%90%8E%E7%9A%84CSS%E6%B2%A1%E6%9C%89%E6%AD%A3%E7%A1%AE%E5%9C%B0%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.2.</span> <span class="toc-text">2、更新后的CSS没有正确地重新加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%85%B3%E9%94%AECSS%E6%9C%AA%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.3.</span> <span class="toc-text">3、关键CSS未加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E4%BB%8D%E7%84%B6%E7%9C%8B%E5%88%B0%E5%90%AF%E7%94%A8%E4%BA%86%E5%85%B3%E9%94%AECSS%E7%9A%84FOUC"><span class="toc-number">2.4.</span> <span class="toc-text">4、仍然看到启用了关键CSS的FOUC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E8%B0%83%E8%AF%95%E5%85%B3%E9%94%AECSS%E7%94%9F%E6%88%90"><span class="toc-number">2.5.</span> <span class="toc-text">5、调试关键CSS生成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%951%EF%BC%9AQUIC-Cloud%E4%BB%AA%E8%A1%A8%E6%9D%BF"><span class="toc-number">2.5.1.</span> <span class="toc-text">方法1：QUIC.Cloud仪表板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%952%EF%BC%9A%E4%BD%A0%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.5.2.</span> <span class="toc-text">方法2：你的文件系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%953%EF%BC%9AHTML%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">2.5.3.</span> <span class="toc-text">方法3：HTML源代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E5%8E%9F%E5%A7%8BCSS%E6%96%87%E4%BB%B6"><span class="toc-number">2.5.4.</span> <span class="toc-text">寻找原始CSS文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E7%BB%95%E8%BF%87AJAX%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">2.6.</span> <span class="toc-text">6、绕过AJAX的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E7%AD%9B%E9%80%89%E5%99%A8"><span class="toc-number">2.6.1.</span> <span class="toc-text">调用筛选器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81DevTools%E5%8A%A0%E8%BD%BDSourceMap%E5%A4%B1%E8%B4%A5"><span class="toc-number">2.7.</span> <span class="toc-text">7、DevTools加载SourceMap失败</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/hello-world.html" title="Hello World">Hello World</a><time datetime="2024-12-12T08:06:58.656Z" title="发表于 2024-12-12 16:06:58">2024-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024-12-08-2024/12/2024-12-08-hono-cloudflare-workers%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/index.html" title="hono Cloudflare Workers使用环境变量">hono Cloudflare Workers使用环境变量</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024-12-08-2024/12/2024-12-08-sqlite-%E5%9C%A8sqlite3%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E8%AF%86%E5%88%AB%E9%87%8D%E5%A4%8D%E8%A1%8C%E5%B9%B6%E5%88%A0%E9%99%A4%E5%AE%83%E4%BB%AC/index.html" title="SQLite 在SQLite3数据库中识别重复行并删除它们">SQLite 在SQLite3数据库中识别重复行并删除它们</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024-12-08-2024/12/2024-12-08-sqlite-%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2%EF%BC%9A%E5%BF%AB%E9%80%9F%E9%AB%98%E6%95%88%E7%9A%84%E6%96%87%E6%9C%AC%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%A1%88/index.html" title="SQLite 全文检索：快速高效的文本查询方案">SQLite 全文检索：快速高效的文本查询方案</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024-12-05-2024/12/2024-12-05-hello-world/index.html" title="Hello world!">Hello world!</a><time datetime="2024-12-05T00:00:00.000Z" title="发表于 2024-12-05 08:00:00">2024-12-05</time></div></div></div></div></div></div></main><footer id="footer" style="background-color: #0000;"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
