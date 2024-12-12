@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>打包地 - 一个来自外星的小姐姐</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="打包地,小姐姐,外星,转载,技术文章">
+<meta property="og:type" content="website">
+<meta property="og:title" content="打包地">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="打包地">
+<meta property="og:description" content="打包地,小姐姐,外星,转载,技术文章">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="打包地,小姐姐,外星,转载,技术文章">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp"><link rel="shortcut icon" href="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp"><link rel="canonical" href="http://example.com/page/5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '打包地',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://bing.img.run/1366x768.php);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp" alt="Logo"><span class="site-name">打包地</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">打包地</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-14-2024/11/2024-11-14-%E7%9C%9F%E6%AD%A3%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8cloudflare-saas%E4%BC%98%E9%80%89%E5%8A%9F%E8%83%BD/index.html" title="真正正确使用Cloudflare SaaS优选功能">真正正确使用Cloudflare SaaS优选功能</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-14T00:00:00.000Z" title="发表于 2024-11-14 08:00:00">2024-11-14</time></span></div><div class="content">在数字世界的浩瀚海洋中，Cloudflare SaaS功能犹如一座光芒四射的灯塔，为众多网站管理员和开发者指引着网络性能优化的方向。它的强大功能，正日益成为这个技术驱动时代的宠儿。但是，当你在互联网的汪洋中寻找一盏明灯，希望找到一篇真正全面、深入且能解决实际问题的指南时，你会发现这并非易事。许多教程如同海面上的浮萍，表面光鲜，却缺乏深度，甚至彼此抄袭，让初学者望而却步，也让经验丰富的开发者难以获得更深层次的洞察。 今天，让我们摒弃那些陈词滥调，通过一个域名案例，带你深入探索Cloudflare SaaS功能的神秘殿堂。 真正正确使用Cloudflare SaaS优选功能 | 猫东东 - 好好生活，停止摸鱼 准备工作 Cloudflare账号，申请地址: https://cloudflare.com 2个域名 cfd.del.pub 最终要使用的域名(这个需要在能分线路的解析商，国内的可以选择dnspod, alidns, 西数dns, 华为云dns, 国外的话,可以用GCORE) sa6.us.kg...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-13-2024/11/2024-11-13-abby-%E4%BD%BF%E7%94%A8%E7%A7%81%E9%92%A5%E7%99%BB%E5%BD%95serv00/index.html" title="abby 使用私钥登录serv00">abby 使用私钥登录serv00</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-13T00:00:00.000Z" title="发表于 2024-11-13 08:00:00">2024-11-13</time></span></div><div class="content">运行ssh-keygen -t rsa -b 4096命令，根据指引，一路默认回车或y，创建一对公钥+私钥（id_rsa.pub和id_rsa），生成的这对密钥默认保存存在~&#x2F;.ssh&#x2F; image image 1220×892 65.2 KB 运行scp &#x2F;.ssh&#x2F;id_rsa.pub &#117;&#x73;&#x65;&#114;&#64;&#x73;&#55;&#x2e;&#x73;&#101;&#x72;&#x76;&#x30;&#x30;&#x2e;&#x63;&#111;&#x6d;:&#x2F;.ssh&#x2F;authorized_keys命令， 用scp 命令把公钥传到你的 serv00主机上，其中user记得改为邮件中的Login，稍后会提示你输入密码也就是邮件中的Password image image 1134×166 17 KB Tabby中配置好密钥登录，私钥也是在本地的~&#x2F;.ssh 目录下 image image 1604×1372 196 KB 又可以用Tabby愉快一键登录了 image...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-13-2024/11/2024-11-13-abby-%E4%BD%BF%E7%94%A8%E7%A7%81%E9%92%A5%E7%99%BB%E5%BD%95serv00-2/index.html" title="abby 使用私钥登录serv00">abby 使用私钥登录serv00</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-13T00:00:00.000Z" title="发表于 2024-11-13 08:00:00">2024-11-13</time></span></div><div class="content">fdfsf  运行ssh-keygen -t rsa -b 4096命令，根据指引，一路默认回车或y，创建一对公钥+私钥（id_rsa.pub和id_rsa），生成的这对密钥默认保存存在~&#x2F;.ssh&#x2F; image1220×892 65.2 KB  运行scp &#x2F;.ssh&#x2F;id_rsa.pub user@s7.serv00.com:&#x2F;.ssh&#x2F;authorized_keys命令， 用scp 命令把公钥传到你的 serv00主机上，其中user记得改为邮件中的Login，稍后会提示你输入密码也就是邮件中的Password image1134×166 17 KB  Tabby中配置好密钥登录，私钥也是在本地的~&#x2F;.ssh 目录下 image1604×1372 196 KB  又可以用Tabby愉快一键登录了 image1720×1202 219 KB   </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-13-2024/11/2024-11-13-hello-world-2/index.html" title="世界，您好！">世界，您好！</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-13T00:00:00.000Z" title="发表于 2024-11-13 08:00:00">2024-11-13</time></span></div><div class="content">欢迎使用 WordPress。这是您的第一篇文章。编辑或删除它，然后开始写作吧！ </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-13-2024/11/2024-11-13-wordpress%E9%83%A8%E7%BD%B2ssl%EF%BC%88https%EF%BC%89%E5%90%8E%E6%8F%90%E7%A4%BA%E7%BD%91%E9%A1%B5%E9%87%8D%E5%AE%9A%E5%90%91%E6%AC%A1%E6%95%B0%E8%BF%87%E5%A4%9A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9/index.html" title="wordpress部署SSL（https）后提示网页重定向次数过多的解决方法">wordpress部署SSL（https）后提示网页重定向次数过多的解决方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-13T00:00:00.000Z" title="发表于 2024-11-13 08:00:00">2024-11-13</time></span></div><div class="content">...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-13-2024/11/2024-11-13-%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91%E5%85%8D%E4%BF%A1%E7%94%A8%E5%8D%A1%E4%B8%BAcloudflare%E6%B7%BB%E5%8A%A0%E4%BB%98%E6%AC%BE%E6%96%B9%E5%BC%8F/index.html" title="【教程】免信用卡为cloudflare添加付款方式">【教程】免信用卡为cloudflare添加付款方式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-13T00:00:00.000Z" title="发表于 2024-11-13 08:00:00">2024-11-13</time></span></div><div class="content">Cloudflare是一家全球云平台服务提供商，面向全球不同规模的企业和个人用户提供广泛的网络服务。该公司提供多项免费网络服务，包括CDN、Workers and Pages、R2、Zero Trust等，深获用户好评。然而，部分免费服务如R2、Zero Trust需要绑定支付方式方可使用。鉴于一些用户没有外币信用卡、担心意外超额扣费、或因隐私考虑不愿绑定真实信用卡，Paypal信息等原因，无法使用R2、Tunnel、SaaS等服务。本教程将介绍一种通过生成信用卡信息为Cloudflare添加付款方式的方法。  需要准备：   一个信用卡号生成网站，这里以Namso-gen为例 一个信用卡校验测活网站，这里以MrChecker为例 一个卡BIN查询网站，这里以BINCheck为例 一个虚拟地址生成网站，这里以美国地址生成器为例 一个可以通过cf支付网关验证的卡段，这里我为大家提供几个： 601121255660xxxx 546775142533xxxx 622759531087xxxx 479229938031xxxx （用其他卡段测试成功的mjj也可在楼下补充）   原理：...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-13-2024/11/2024-11-13-%E7%8E%A9%E8%BD%ACserv00%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E9%9B%B6%E6%88%90%E6%9C%AC%E6%90%AD%E5%BB%BAwordpress%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%85%A5/index.html" title="玩转serv00虚拟主机（一）：零成本搭建wordpress个人博客&amp;入门">玩转serv00虚拟主机（一）：零成本搭建wordpress个人博客&amp;入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-13T00:00:00.000Z" title="发表于 2024-11-13 08:00:00">2024-11-13</time></span></div><div class="content">不少童鞋在搭建博客、alist、图床等各类web服务的时候苦于云服务器的成本望而却步，但其实搭建web服务也可以用虚拟主机，不少厂商都有免费的虚拟主机，但对于很多童鞋可能是第一次听说虚拟主机，这里就开一个新的系列，玩转serv00家的免费虚拟主机，本期就从0开始搭建wordpress个人博客。 先解释下什么是虚拟主机：虚拟主机（英语：virtual hosting）或称共享主机（shared web...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-13-2024/11/2024-11-13-%E7%BB%99serv00%E6%B7%BB%E5%8A%A0%E4%BC%98%E8%B4%A8%E5%9F%9F%E5%90%8D%E5%B9%B6%E5%8A%A0%E9%80%9F%E7%BD%91%E7%AB%99/index.html" title="给serv00添加优质域名并加速网站">给serv00添加优质域名并加速网站</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-13T00:00:00.000Z" title="发表于 2024-11-13 08:00:00">2024-11-13</time></span></div><div class="content">serv00不加速网站的情况下延迟比较高，而且自带的域名也很不美观。有很多免费高大上但是不能托管cloudflare的域名，要充分将其利用请见下文  开始前准备1.serv00账号申请 https://www.serv00.com/ 30 2.注册一个添加到serv00的免费域名 changeip.com 220 注册参考： https://linux.do/t/topic/170258 或者使用其他的免费域名  免费域名分享，一起将白嫖进行到底 软件分享  免费的域名有以下网站，还请其他大佬继续补充，一起将白嫖进行到底 ： https://subreg.cz 可以申请free.hr二级域名(现在需要收费1.6元&#x2F;年了)，可以托管到 CF https://freedomain.one 可以申请 publicvm.com、run.place等五种免费二级域名 https://www.azote.org 可以申请N多免费二级域名，虽不…  如果注册网站不支持托管域名，可以使用托管中介，但是托管后只能使用托管的次级域名进行解析 托管网址： HOSTRY - Instant...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-13-2024/11/2024-11-13-%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8Cus-kg%EF%BC%9A%E4%BB%8E%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%88%B0cloudflare%E6%89%98%E7%AE%A1%E5%85%A8%E6%B5%81%E7%A8%8B%E6%95%99%E7%A8%8B/index.html" title="免费域名注册us.kg：从域名注册到Cloudflare托管全流程教程 | 永久免费">免费域名注册us.kg：从域名注册到Cloudflare托管全流程教程 | 永久免费</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-13T00:00:00.000Z" title="发表于 2024-11-13 08:00:00">2024-11-13</time></span></div><div class="content">  大家好，我是hans，今天给大家分享一期能托管到托管到Cloudflare的免费域名教程，us.kg看起来像是一个二级域名，其实是国家代码顶级域名（ccTLD），如 其实是国家代码顶级域名，简称PSL，属于公共后缀列表。PSL 的主要用途是帮助浏览器和其他软件正确处理 Cookie、安全策略和同源策略。域名长得有点特别，但功能与服务跟通用域名（.com、cn）一样，还能托管到Cloudflare，可以搭建魔法节点、博客等各种应用，关键是免费，还要啥自行车。大家请跟我一起操作。 如何注册域名（us.kg）一、注册us.kg帐号1.打开us.kg官网：https://register.us.kg/ 点击:Sign up   2.输入你的账户信息（邮箱填写真实邮箱，要接收验证邮件） 1注：用户名（自定义）、邮箱（常用邮箱，需要接收验证邮箱）、电话与地址（填写虚拟信息即可，由身份信息平台生成）；  3.身份信息平台：https://meiguodizhi.com 1注：随意生成一个身份信息，按照注册页面要求复制...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024-11-13-2024/11/2024-11-13-serv00%E6%90%AD%E5%BB%BA%E5%90%84%E7%A7%8D%E6%9C%8D%E5%8A%A1/index.html" title="Serv00搭建各种服务">Serv00搭建各种服务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-13T00:00:00.000Z" title="发表于 2024-11-13 08:00:00">2024-11-13</time></span></div><div class="content">这个平台是个 Virtual Host ，没有 Root ，还是 FreeBSD 的系统，不是 Linux ，不太好用。但是优点是隔离性差， Memory 和 vCPU 能短时间内超过 100% 进行调用。 已经玩了不少时间了，起初看到 Github 上有使用 Serv00 搭建 Vless 节点的仓库，就上手玩了一下，后来发现极其不稳， screen 运行的进程总是过一段时间就掉了（后经网友讨论确认为Serv00有时候会重启宿主机），又得ssh上去启动，相当不友好，且后来又发现了 Hax 这样的玩具，就对 Serv00 视如敝履了。 但是这两天有群友突然提醒我才想起，我在 Hax 上用的很舒服的 pm2 也可以在 Serv00 上使用，这个十年有效期的玩具突然显得有用了起来。 经过我的尝试，成功在 Serv00 上部署了一些服务，接下来进行记录： 面板自带功能域名Serv00 上如果想要使用自己的域名，有两种方式，一种是通过 Cloudflare 提供的 Argo 隧道，不仅能绑域名，免配置 ssl ，还可以享受 Cloudflare 的免费 CDN...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description">打包地,小姐姐,外星,转载,技术文章</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/hello-world.html" title="Hello World">Hello World</a><time datetime="2024-12-12T08:06:58.656Z" title="发表于 2024-12-12 16:06:58">2024-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024-12-08-2024/12/2024-12-08-hono-cloudflare-workers%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/index.html" title="hono Cloudflare Workers使用环境变量">hono Cloudflare Workers使用环境变量</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024-12-08-2024/12/2024-12-08-sqlite-%E5%9C%A8sqlite3%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E8%AF%86%E5%88%AB%E9%87%8D%E5%A4%8D%E8%A1%8C%E5%B9%B6%E5%88%A0%E9%99%A4%E5%AE%83%E4%BB%AC/index.html" title="SQLite 在SQLite3数据库中识别重复行并删除它们">SQLite 在SQLite3数据库中识别重复行并删除它们</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024-12-08-2024/12/2024-12-08-sqlite-%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2%EF%BC%9A%E5%BF%AB%E9%80%9F%E9%AB%98%E6%95%88%E7%9A%84%E6%96%87%E6%9C%AC%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%A1%88/index.html" title="SQLite 全文检索：快速高效的文本查询方案">SQLite 全文检索：快速高效的文本查询方案</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024-12-05-2024/12/2024-12-05-hello-world/index.html" title="Hello world!">Hello world!</a><time datetime="2024-12-05T00:00:00.000Z" title="发表于 2024-12-05 08:00:00">2024-12-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/wenzhang/"><span class="card-category-list-name">wenzhang</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/yuanchuang/"><span class="card-category-list-name">yuanchuang</span><span class="card-category-list-count">7</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/yuanchuang/wenzhang/"><span class="card-category-list-name">wenzhang</span><span class="card-category-list-count">4</span></a></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/telegram-%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95%E6%90%9C%E7%B4%A2/" style="font-size: 1.5em; color: #99a9bf">telegram-聊天记录搜索</a> <a href="/tags/sqlite/" style="font-size: 1.1em; color: #999">sqlite</a> <a href="/tags/cloudflare-workers/" style="font-size: 1.5em; color: #99a9bf">cloudflare-workers</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/12/">
+            <span class="card-archive-list-date">
+              十二月 2024
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/11/">
+            <span class="card-archive-list-date">
+              十一月 2024
+            </span>
+            <span class="card-archive-list-count">40</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">50</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-12T13:04:04.018Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-color: #0000;"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
