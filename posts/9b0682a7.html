@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>提升WordPress的网站的速度性能优化的终极指南 | 打包地</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="众所周知，很多初学者站长对于Wordpress网站的优化是摸不着头脑的， 并不知道从何下手，那么本篇文章就将教您如何正确的优化您的网站达到一个可观的访问速度， 从而达到提高网站SEO评分和提高网站访客的效果。 本文将会针对在中国内地的服务器以及全球服务器两大优化方法进行阐述，略微有一些不同。 首先我们要了解网站的受众是哪些国家地区，我们针对这些群体进行相应的优化。 当顾客坐在餐厅吃饭时，服务员的上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="提升WordPress的网站的速度性能优化的终极指南">
+<meta property="og:url" content="http://example.com/posts/9b0682a7.html">
+<meta property="og:site_name" content="打包地">
+<meta property="og:description" content="众所周知，很多初学者站长对于Wordpress网站的优化是摸不着头脑的， 并不知道从何下手，那么本篇文章就将教您如何正确的优化您的网站达到一个可观的访问速度， 从而达到提高网站SEO评分和提高网站访客的效果。 本文将会针对在中国内地的服务器以及全球服务器两大优化方法进行阐述，略微有一些不同。 首先我们要了解网站的受众是哪些国家地区，我们针对这些群体进行相应的优化。 当顾客坐在餐厅吃饭时，服务员的上">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp">
+<meta property="article:published_time" content="2024-11-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-13T00:55:06.752Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="打包地,小姐姐,外星,转载,技术文章">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "提升WordPress的网站的速度性能优化的终极指南",
+  "url": "http://example.com/posts/9b0682a7.html",
+  "image": "https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp",
+  "datePublished": "2024-11-19T00:00:00.000Z",
+  "dateModified": "2024-12-13T00:55:06.752Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp"><link rel="canonical" href="http://example.com/posts/9b0682a7.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '提升WordPress的网站的速度性能优化的终极指南',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://bing.img.run/1366x768.php);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp" alt="Logo"><span class="site-name">打包地</span></a><a class="nav-page-title" href="/"><span class="site-name">提升WordPress的网站的速度性能优化的终极指南</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">提升WordPress的网站的速度性能优化的终极指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-19T00:00:00.000Z" title="发表于 2024-11-19 08:00:00">2024-11-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-13T00:55:06.752Z" title="更新于 2024-12-13 08:55:06">2024-12-13</time></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>众所周知，很多初学者站长对于Wordpress网站的优化是摸不着头脑的， 并不知道从何下手，那么本篇文章就将教您如何正确的优化您的网站达到一个可观的访问速度， 从而达到提高网站SEO评分和提高网站访客的效果。</p>
+<p>本文将会针对在中国内地的服务器以及全球服务器两大优化方法进行阐述，略微有一些不同。 首先我们要了解网站的受众是哪些国家地区，我们针对这些群体进行相应的优化。</p>
+<p>当顾客坐在餐厅吃饭时，服务员的上菜速度慢，服务不积极通常会导致有一个较差的用餐体验，未来的顾客也就更少了。同样，缓慢的网站速度可能导致搜索引擎SEO排名不佳、网站总体流量降低以及负面的用户体验。</p>
+<p>网站速度，或网站性能，是指浏览器能够从给定站点加载网页全部功能的速度。在浏览器中呈现缓慢加载的低性能网站可能会失去用户。相反，快速加载的网站通常会收到更多流量，并具有更高的转换率。这里有一个<a target="_blank" rel="noopener" href="https://www.thinkwithgoogle.com/consumer-insights/consumer-trends/mobile-site-load-time-statistics/">来自Google官方的数据调查</a>，是的，您没看错，如果加载时间超过 3 秒，53% 的访问者会放弃您的网站。</p>
+<figure>
+
+<p><img src="/images/image-1.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<figcaption>
+
+<p>不同速度下客户转换率对比</p>
+</figcaption>
+
+</figure>
+
+<h2 id="速度真的很重要吗？"><a href="#速度真的很重要吗？" class="headerlink" title="速度真的很重要吗？"></a>速度真的很重要吗？</h2><p>多项研究表明，网站速度会影响转化率（即用户完成目标操作的比率）。与速度较慢的网站相比，不仅更多用户停留在快速加载的网站上，而且他们的转化率也更高。许多公司发现页面加载时间减少几毫秒都会增加转化率。</p>
+<p>试问你自己，如果遇到一个要很久时间才能打开的网站，你是否会放弃访问这个网站寻找其他类似的网站？</p>
+<p>速度的快慢会影响以下：</p>
+<ul>
+<li><p>转换率</p>
+</li>
+<li><p>跳出率</p>
+</li>
+<li><p>SEO搜索引擎排名效果</p>
+</li>
+<li><p>用户体验</p>
+</li>
+</ul>
+<figure>
+
+<p><img src="/images/image-47.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<figcaption>
+
+<p>网站访问速度对网站跳出率的影响</p>
+</figcaption>
+
+</figure>
+
+<p><strong>所以我们接下来一步一步讲解，网站到底该如何进行优化？</strong></p>
+<h2 id="服务器的配置如何选择？"><a href="#服务器的配置如何选择？" class="headerlink" title="服务器的配置如何选择？"></a>服务器的配置如何选择？</h2><ul>
+<li><p>如果您是为了使用网站进行<strong>博客文章类</strong>创作， 那么我们推荐您购买配置在2-4h&#x2F;2-4g 基本上足够了。</p>
+</li>
+<li><p>如果您需要搭建一个<strong>电子商城&#x2F;独立站</strong>， 那我推荐您选择 专为电子商务优化的虚拟主机， 这将不需要让您花费时间在维护服务器上。 或者选择配置为4h4g或更高配置的服务器，带宽大于等于5M。</p>
+</li>
+</ul>
+<p>选择一个良好的服务器， 在优化性能和速度中发挥的重要的作用，也是取决于你的网站能否承受大量的流量， 所以优先选择大厂的服务器进行建站， 通常情况下，大厂的服务器更加有品质保障。</p>
+<p>通过这两种典型的案例，我将为您在下文阐述在动态化的网站和静态化的网站的优化中有所不同的地方。</p>
+<h2 id="优化总共分为哪些方面？"><a href="#优化总共分为哪些方面？" class="headerlink" title="优化总共分为哪些方面？"></a>优化总共分为哪些方面？</h2><p>很多初学者根据网站上的教程一步一步的搭建好自己的网站，看了许多的插件和配置教程， 根据步骤进行优化后，并没有达到一个良好的效果，因为他们并不知道网站优化分为哪几个层面，要从哪些地方下手。</p>
+<p>首先，Wordpress是动态的，并不是纯静态的页面，每一次访问网站，都会动态的加载网站架构。 所以，每当一个人进行访问，都需要消耗一定的服务器资源。 那么当访问的人越来越多之后网站就会造成拥堵的状况。</p>
+<p>所以我们需要拥有缓存插件，将动态化的内容提前进行缓存。 这也是为什么安装了缓存插件之后，我们的网站能够提高访问速度。</p>
+<p>简单的说一个网站打开的流程：wordpress使用PHP为后端服务，由PHP进行html内容渲染，然后传入用户浏览器。</p>
+<p>所以我们需要从三个方面进行优化， <strong>数据库优化</strong>、 <strong>页面缓存优化</strong>、 <strong>静态资源优化</strong>。</p>
+<figure>
+
+<p><img src="/images/image-27.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<figcaption>
+
+<p>图中解释了Wordpress的工作原理</p>
+</figcaption>
+
+</figure>
+
+<p>每当客户访问了我们的网站，PHP首先会配合数据库进行整理，输出一个HTML的文件， 可供网站浏览器访客进行阅览。 所以这会消耗服务器巨大的资源。 为什么中国很多人不喜欢使用这款CMS， 因为他确实非常的臃肿，如果不进行优化会非常的吃力。</p>
+<h3 id="额外补充"><a href="#额外补充" class="headerlink" title="额外补充"></a>额外补充</h3><p>通常我们会使用宝塔或者一些服务器面板，可视化管理工具进行安装Wordpress，一般会选择基于NGINX进行配置， 如果你的服务器只运行Wordpress， 那么我们推荐您使用国际版的宝塔<a target="_blank" rel="noopener" href="https://www.aapanel.com/">aapanel</a>，并安装**<a target="_blank" rel="noopener" href="https://www.litespeedtech.com/">OpenLiteSpeed Web</a>**来代替NGINX。</p>
+<p><img src="/images/image-28-1024x256.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<p>他提供了高性能，并且非常轻量化的占用， 并且专门为Wordpress进行优化。 通过服务器端与Wordpress的LiteSpeed插件深度融合， 你只需要这么一个插件就能提升你的网络性能和速度。</p>
+<p><img src="/images/image-29.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<figure>
+
+<p><img src="/images/image-30-1024x597.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<figcaption>
+
+<p>各个缓存插件对比的数据-webspeedtools</p>
+</figcaption>
+
+</figure>
+
+<p>LiteSpeed Cache 为您的网站提供各种速度优化功能。从缩小化HTML、CSS 和 JS 文件，到优化图像、生成关键 CSS、优化数据库以及 LiteSpeed Cache 插件中内置的许多其他功能。简而言之，您将获得优化网站所需的一切内容。</p>
+<h3 id="快速优化检查清单"><a href="#快速优化检查清单" class="headerlink" title="快速优化检查清单"></a>快速优化检查清单</h3><p>熟练网站操作的站长们，我们提供了一个快速优化清单，省去了下面复杂的内容讲解。</p>
+<ul>
+<li><p>-初阶优化清单</p>
+<ul>
+<li><p>使用CDN加速网站，可根据<strong>网站和主主题性质</strong>考虑是否全站静态优化</p>
+</li>
+<li><p>图片&#x2F;视频等静态内容通过OSS&#x2F;COS等第三方存储桶储存，减缓服务器带宽压力（带宽小可考虑）</p>
+</li>
+<li><p>使用opcache和Redis&#x2F;Memcached扩展</p>
+</li>
+<li><p>优化网站图片大小、视频等</p>
+</li>
+<li><p>减少不必要或功能重复的插件使用</p>
+</li>
+<li><p>安装Wordpress缓存插件并合理配置，并优化CSS、JS、懒加载、预加载等</p>
+</li>
+<li><p>安装Wordpress轻量化插件，可选<a target="_blank" rel="noopener" href="https://wordpress.org/plugins/wpjam-basic/">WPJAM Basic</a>、<a target="_blank" rel="noopener" href="https://www.freewplugin.com/wordpress-paid-plugins/perfmatters.html">Perfmatters</a>等减法插件</p>
+</li>
+<li><p>使用最新版的 PHP</p>
+</li>
+</ul>
+</li>
+<li><p>-高阶优化清单</p>
+<ul>
+<li><p>使用系统自带字体，不加载字体包。将Google字体替换或本地托管</p>
+</li>
+<li><p>尽可能减少外部HTTP请求，禁用或整合成一个请求文件</p>
+</li>
+<li><p>减少数据库调用（需要PHP和数据库技术能力），尽可能做到首页 0 SQL</p>
+</li>
+<li><p>单独分析可延缓加载Javascript进行优化</p>
+</li>
+<li><p>推迟或删除未使用的CSS</p>
+</li>
+<li><p>将长帖子文章拆分成多个页面</p>
+</li>
+<li><p>单独Debug每个页面，可使用Debug Bar插件来调试数据库查询</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="优化数据库以提高响应性能"><a href="#优化数据库以提高响应性能" class="headerlink" title="优化数据库以提高响应性能"></a>优化数据库以提高响应性能</h2><p>我们需要在服务器端的PHP中安装相应的扩展，通常在服务器面板中能够找到，这里我们以aapanel为例，我们需要安装<strong>memcached</strong>或者<strong>redis</strong>(二选一）如果访问量大并且涉及到动态内容多，那么建议选择redis作为持久对象缓存后端</p>
+<p><img src="/images/image-31.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<p>当扩展安装完毕之后，我们需要来到Wordpress后台进行安装相应的插件，</p>
+<ul>
+<li><p>如果你选择的是<strong>memcached</strong>，需安装<a target="_blank" rel="noopener" href="https://wordpress.org/plugins/memcached-redux/">Memcached Redux</a>或类似的插件</p>
+</li>
+<li><p>如果你选择的是<strong>redis</strong>，需安装<a target="_blank" rel="noopener" href="https://wordpress.org/plugins/redis-cache/">Redis Object Cache</a>或类似的插件</p>
+</li>
+</ul>
+<p>安装并成功配置完插件后，数据库对象缓存部分我们就大功告成了。如果您还想提升您数据库的性能，可以安装一些数据库的清理插件（<a target="_blank" rel="noopener" href="https://www.freewplugin.com/wordpress-paid-plugins/wp-optimize-premium.html">WP-Optimize Premium</a>），在我们的高级插件中均有收录。</p>
+<h2 id="安装Wordpress页面缓存插件"><a href="#安装Wordpress页面缓存插件" class="headerlink" title="安装Wordpress页面缓存插件"></a>安装Wordpress页面缓存插件</h2><p>在前面提到Wordpress的网站是动态化加载的，所以这也是为什么我们需要安装缓存插件的目的，通常能够提升数倍的访问速度。</p>
+<p>如果您的网站为纯静态博客文章类，没有任何在线动态功能的网站，您可以选择使用CDN强制缓存所有的内容，那么缓存插件就是一个可选的需求，不一定要安装页面缓存插件，这并不会带来多大的提升。</p>
+<p>根据缓存测评专家网站**<a target="_blank" rel="noopener" href="https://webspeedtools.com/">webspeedtools.com</a>**提供的数据表明，WP Rocket是除LiteSpeed外首选的页面缓存插件。接下来我们会根据缓存性能进行排名推荐可靠的缓存插件集合。</p>
+<h3 id="第一名-WP-Rocket"><a href="#第一名-WP-Rocket" class="headerlink" title="第一名-WP Rocket"></a>第一名-WP Rocket</h3><p><img src="/images/image-32.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<p>WP Rocket拥有所有缓存插件中最简单的用户界面之一。除了缓存外，它还提供了网站所需的各种优化功能，以实现适当的速度优化。此外，即使不更改任何默认设置，它也能很好地与各种网站配合使用。这三点结合起来，使WP Rocket成为大多数人的理想选择。</p>
+<p>它是这个列表中唯一一个只有高级版本而没有免费或免费增值版本的插件。但是，对WP Rocket的将使您能够轻松启用缓存，并利用所有必要的WordPress网站速度优化。</p>
+<p><a target="_blank" rel="noopener" href="https://www.freewplugin.com/wordpress-paid-plugins/wp-rocket.html">下载WP Rocket</a></p>
+<h3 id="第二名-WP-Super-Cache"><a href="#第二名-WP-Super-Cache" class="headerlink" title="第二名-WP Super Cache"></a>第二名-WP Super Cache</h3><p><img src="/images/image-33.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<p>WP Super Cache由创建WordPress的同一家公司开发。因此，它通常与各种网站具有非常高的兼容性。WordPress没有内置的缓存系统，但WP Super Cache可以很轻松地填补这个空白。事实上，它只提供缓存，而没有许多其他缓存插件提供的其他优化功能。</p>
+<p>它有一个简易模式，只提供两个选项，即启用或禁用缓存。因此，它不需要对缓存中涉及的复杂设置有任何先前的知识，这使得它非常适合初学者。但它也有一个高级模式，可以为您提供大量选项，以根据您的需求精确配置站点上的缓存。</p>
+<p>如果您希望使用一个没有其他内置优化功能的缓存插件，这可能会使您的网站变得臃肿，那么WP Super Cache可能正是您的正确选择。</p>
+<p><a target="_blank" rel="noopener" href="https://wordpress.org/plugins/wp-super-cache/">下载WP Super Cache</a></p>
+<h3 id="第三名-WP-Fastest-Cache-Premium"><a href="#第三名-WP-Fastest-Cache-Premium" class="headerlink" title="第三名-WP Fastest Cache Premium"></a>第三名-WP Fastest Cache Premium</h3><p><img src="/images/image-34.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<p>WP Fastest Cache在所有缓存插件中拥有最简单的用户界面之一。但是，这种简单并不意味着它缺乏关键的定制选项。事实上，它的简单性与足够的定制选项相结合，使得大多数仅具有有限缓存知识的初学者可以轻松配置WP Fastest Cache。</p>
+<p>除了缓存之外，WP Fastest Cache还提供了WordPress网站所需的其他定制功能。当您将简约界面、额外优化功能、最小定制选项结合在一起时，WP Fastest Cache很容易成为许多人的值得选择的插件。</p>
+<p><a target="_blank" rel="noopener" href="https://www.freewplugin.com/wordpress-paid-plugins/wp-fastest-cache-premium.html">下载WP Fastest Cache Premium</a></p>
+<h3 id="第四名-W3-Total-Cache-Pro"><a href="#第四名-W3-Total-Cache-Pro" class="headerlink" title="第四名-W3 Total Cache Pro"></a>第四名-W3 Total Cache Pro</h3><p><img src="/images/image-35.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<p>W3 Total Cache充满了定制选项，可以让您对网站上的缓存工作进行广泛的控制。事实上，除了一般设置外，您还会发现针对不同类型缓存的单独设置页面。然而，这也意味着您需要对缓存有很深入的理解，才能充分利用这些定制功能。</p>
+<p>W3 Total Cache还提供了一些其他优化功能，如CSS和JS文件的缩小、组合和内联。对其功能的广泛控制使W3 Total Cache成为一个很好的选择，如果您想要精确地配置所有内容。</p>
+<p><a target="_blank" rel="noopener" href="https://www.freewplugin.com/wordpress-paid-plugins/w3-total-cache-pro.html">下载W3 Total Cache Pro</a></p>
+<blockquote>
+<p>请注意：并非将全部功能开启则为最佳优化状态，请结合网站实际情况，对于JS CSS这些优化设置是否开启需要进行实际测试，如果开启影响了网站的功能或是样式，请将其关闭，不能盲目的追求甚微的速度而影响了客户的正常访问，这样得不偿失。</p>
+</blockquote>
+<h2 id="优化静态资源以缩减网站大小"><a href="#优化静态资源以缩减网站大小" class="headerlink" title="优化静态资源以缩减网站大小"></a>优化静态资源以缩减网站大小</h2><p>我们的网站除了需要动态加载的内容外，我们还有很多静态的资源需要我们进行优化，才能达到最完美的速度，比如网站里面的图片、视频、字体…….</p>
+<h3 id="优化图像以提高速度"><a href="#优化图像以提高速度" class="headerlink" title="优化图像以提高速度"></a>优化图像以提高速度</h3><p><img src="/images/image-36.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<p>我们在网站上放置的图片通常情况都非常大，所以如果您的服务器带宽并不是很高，那么多个访客进行访问就会消耗大量的带宽，从而造成<strong>网络堵车</strong>。这通常发生在中国内地的服务器，因为中国的服务器带宽都非常的小，高带宽服务器需要非常昂贵的价格。</p>
+<p>在全球其他地区多为G口带宽，应对大型图片视频基本上没有什么压力。但考虑到客户访问我们的网站并不是都是拥有很快的网络，可能他正在使用4G&#x2F;3G的移动手机进行访问，过大的图片会让手机压力倍增，完整加载出一个页面可能需要花费很久的时间。</p>
+<p>为了保证尽可能让所有人都能顺畅的访问我们的网站，我们需要对图片进行<strong>缩小</strong>和<strong>动静态分离</strong>。</p>
+<h4 id="缩小网站图片"><a href="#缩小网站图片" class="headerlink" title="缩小网站图片"></a>缩小网站图片</h4><p>一般通过两种模式进行缩小，下载Wordpress图片缩小插件，或是将图片拷贝到本地通过PS等软件批量进行压缩再回传到网站。但考虑到方便的问题，这里我们推荐通过插件的模式进行缩小。</p>
+<p>我们网站采用了付费的<strong>Imagify</strong>插件（WP Rocket同款开发者），这个插件采用了在线的优化工作方式，所以并没有办法进行GPL，通过安装并注册可以获得免费的API 如果您的网站并没有太多的图片，那么免费方案足够使用。还有一些其他的图片优化插件<a target="_blank" rel="noopener" href="https://www.freewplugin.com/wordpress-paid-plugins/wp-smush-pro.html">WP Smush Pro</a>。</p>
+<h4 id="动静态分离"><a href="#动静态分离" class="headerlink" title="动静态分离"></a>动静态分离</h4><p><img src="/images/image-37.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<p>WordPress动静态分离是一种优化WordPress网站性能的方法。在传统的WordPress网站中，每当用户请求页面时，WordPress会动态生成HTML页面，这意味着每次访问时都需要执行PHP代码和查询数据库。这种方法对于小型网站来说可能没有太大问题，但对于高流量的网站来说可能会导致性能下降和服务器负载增加。</p>
+<p>动静态分离通过将动态生成的内容与静态内容分离开来，以提高网站的性能和速度。具体来说，动态内容通常包括WordPress主题的外观和布局，以及文章、页面内容等动态生成的内容。而静态内容则是指不经常变化的元素，如图片、CSS文件、JavaScript文件等。</p>
+<p><img src="/images/image-38.png" alt="提升WordPress的网站的速度性能优化的终极指南-2024" title="FreeWPlugin资源网"></p>
+<ol>
+<li><p><strong>图床（Image Hosting）</strong>：</p>
+<ul>
+<li><p>图床是指将网站中的图片等静态资源上传到第三方托管服务上，例如Imgur、Flickr、或者专门的图片托管服务。上传后，你会获得每个资源的唯一URL。</p>
+</li>
+<li><p>在WordPress中，你可以使用图片URL替代上传图片到WordPress服务器的做法。这意味着当用户访问网站时，图片会从外部图床服务器上加载，而不是从WordPress服务器上加载，从而减少WordPress服务器的负载。</p>
+</li>
+<li><p>图床的主要优点是它可以帮助减轻WordPress服务器的负担，并且通常提供了良好的图片加载速度。但是，需要确保所选图床服务是可靠的，可用性高且加载速度快。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CDN（Content Delivery Network）</strong>：</p>
+<ul>
+<li><p>CDN是一种将网站的静态资源缓存到全球各地的服务器上，并通过最近的服务器提供这些资源给用户的服务。一旦用户请求静态资源，CDN会从离用户最近的服务器上提供资源，这样可以减少网络延迟和提高网站加载速度。</p>
+</li>
+<li><p>在WordPress中使用CDN通常需要安装相应的CDN插件，例如Cloudflare、Amazon CloudFront、或者MaxCDN。这些插件可以自动将网站的静态资源上传到CDN，并重写网站页面中的资源链接，以便从CDN提供静态资源。</p>
+</li>
+<li><p>CDN的主要优点是它可以显著提高网站的加载速度，并减轻WordPress服务器的负载。此外，它还提供了一些额外的安全功能，例如DDoS防护和SSL加密。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>关于CDN选择的问题，我们以中国和中国外其他地区进行相应的方案推荐，如果你是在中国的服务器，那么我们推荐选择大厂的CDN（腾讯云、阿里云…)。</p>
+<p>如果你的服务器不在中国，我首先推荐Cloudflare，它提供免费的计划，让初学者也可以轻松配置和测试，如果你是博客网站那么我推荐使用Super Page Cache for Cloudflare一个插件，即可搞定网站的速度，它将会帮你配置将网页加载到CDN，这样内容都在CDN上加载并不会在本地服务器加载，从而达到最快的速度。</p>
+<p>如果你是电子商务或者一些需要在线类业务的网站，推荐使用Cloudflare的付费计划，来针对性的进行配置，让全球任意地方极速访问你的站点。</p>
+<h2 id="如何测试我的网站速度？"><a href="#如何测试我的网站速度？" class="headerlink" title="如何测试我的网站速度？"></a>如何测试我的网站速度？</h2><p>为了测试您的网站在桌面和移动设备上的速度，您可以使用网页速度测试网站，请考虑您网站的访问地区，来选择合适的测试网站。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://pagespeed.web.dev/">https://pagespeed.web.dev/</a>-Google自家测速平台</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://tools.pingdom.com/">https://tools.pingdom.com/</a>-海外测速平台</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://gtmetrix.com/">https://gtmetrix.com/</a>-海外测速平台，提供详细站点速度报告</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.webpagetest.org/">https://www.webpagetest.org/</a>-海外测速平台，可选电脑手机各个地球测速</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.itdog.cn/http/">https://www.itdog.cn/http/</a>-中国内地测速平台</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://boce.aliyun.com/detect/http">https://boce.aliyun.com/detect/http</a>-阿里云全国网络拨测</p>
+</li>
+</ul>
+<p>通过输入网页地址进行测试后，它会告诉您该网页从所选位置加载需要多少秒。事实上，它会为您提供所有这些位置的首次访问和重复访问的加载时间以及两次访问的平均加载时间。现在，根据结果，您将能够查看您的网站加载速度是否足够快或者是否需要任何改进。</p>
+<p>就是这样！我们希望本文能帮助您了解如何提高 WordPress 的速度和性能。通过合适的服务器配置、数据库优化、页面缓存优化、静态资源优化以及选择适当的CDN服务，可以有效提高WordPress网站的访问速度和性能。优化网站速度不仅可以提升用户体验，还有助于提高SEO评分和吸引更多的访客。</p>
+<p>继续尝试这些技术。不要忘记在实施这些最佳实践之前和之后测试您的网站速度。您会惊讶地发现这些更改将提高您的 WordPress 性能。</p>
+<p><a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https://www.freewplugin.com/best-collection/wordpress-performance-speed.html"></a><a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=https://www.freewplugin.com/best-collection/wordpress-performance-speed.html&text=%E6%8F%90%E5%8D%87WordPress%E7%9A%84%E7%BD%91%E7%AB%99%E7%9A%84%E9%80%9F%E5%BA%A6%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97-2024"></a><a target="_blank" rel="noopener" href="https://www.freewplugin.com/best-collection/wordpress-performance-speed.html#"></a><a target="_blank" rel="noopener" href="https://www.linkedin.com/shareArticle?url=https://www.freewplugin.com/best-collection/wordpress-performance-speed.html&title=%E6%8F%90%E5%8D%87WordPress%E7%9A%84%E7%BD%91%E7%AB%99%E7%9A%84%E9%80%9F%E5%BA%A6%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97-2024"></a><a target="_blank" rel="noopener" href="https://t.me/share/url?url=https://www.freewplugin.com/best-collection/wordpress-performance-speed.html&text=%E6%8F%90%E5%8D%87WordPress%E7%9A%84%E7%BD%91%E7%AB%99%E7%9A%84%E9%80%9F%E5%BA%A6%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97-2024"></a><a href="whatsapp://send?text=https%3A%2F%2Fwww.freewplugin.com%2Fbest-collection%2Fwordpress-performance-speed.html"></a><a href="mailto:?subject=%E6%8F%90%E5%8D%87WordPress%E7%9A%84%E7%BD%91%E7%AB%99%E7%9A%84%E9%80%9F%E5%BA%A6%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97-2024&body=https%3A%2F%2Fwww.freewplugin.com%2Fbest-collection%2Fwordpress-performance-speed.html"></a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/9b0682a7.html">http://example.com/posts/9b0682a7.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">打包地</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description">打包地,小姐姐,外星,转载,技术文章</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E7%9C%9F%E7%9A%84%E5%BE%88%E9%87%8D%E8%A6%81%E5%90%97%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">速度真的很重要吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">服务器的配置如何选择？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%80%BB%E5%85%B1%E5%88%86%E4%B8%BA%E5%93%AA%E4%BA%9B%E6%96%B9%E9%9D%A2%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">优化总共分为哪些方面？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E8%A1%A5%E5%85%85"><span class="toc-number">3.1.</span> <span class="toc-text">额外补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%BC%98%E5%8C%96%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-number">3.2.</span> <span class="toc-text">快速优化检查清单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BB%A5%E6%8F%90%E9%AB%98%E5%93%8D%E5%BA%94%E6%80%A7%E8%83%BD"><span class="toc-number">4.</span> <span class="toc-text">优化数据库以提高响应性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Wordpress%E9%A1%B5%E9%9D%A2%E7%BC%93%E5%AD%98%E6%8F%92%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">安装Wordpress页面缓存插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%90%8D-WP-Rocket"><span class="toc-number">5.1.</span> <span class="toc-text">第一名-WP Rocket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%90%8D-WP-Super-Cache"><span class="toc-number">5.2.</span> <span class="toc-text">第二名-WP Super Cache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%90%8D-WP-Fastest-Cache-Premium"><span class="toc-number">5.3.</span> <span class="toc-text">第三名-WP Fastest Cache Premium</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%90%8D-W3-Total-Cache-Pro"><span class="toc-number">5.4.</span> <span class="toc-text">第四名-W3 Total Cache Pro</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BB%A5%E7%BC%A9%E5%87%8F%E7%BD%91%E7%AB%99%E5%A4%A7%E5%B0%8F"><span class="toc-number">6.</span> <span class="toc-text">优化静态资源以缩减网站大小</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E5%9B%BE%E5%83%8F%E4%BB%A5%E6%8F%90%E9%AB%98%E9%80%9F%E5%BA%A6"><span class="toc-number">6.1.</span> <span class="toc-text">优化图像以提高速度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%A9%E5%B0%8F%E7%BD%91%E7%AB%99%E5%9B%BE%E7%89%87"><span class="toc-number">6.1.1.</span> <span class="toc-text">缩小网站图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E9%9D%99%E6%80%81%E5%88%86%E7%A6%BB"><span class="toc-number">6.1.2.</span> <span class="toc-text">动静态分离</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%B5%8B%E8%AF%95%E6%88%91%E7%9A%84%E7%BD%91%E7%AB%99%E9%80%9F%E5%BA%A6%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">如何测试我的网站速度？</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/" title="一次完整的Hexo写作流程">一次完整的Hexo写作流程</a><time datetime="2024-12-13T00:58:27.000Z" title="发表于 2024-12-13 08:58:27">2024-12-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/hello-world.html" title="Hello World">Hello World</a><time datetime="2024-12-12T08:06:58.656Z" title="发表于 2024-12-12 16:06:58">2024-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/d966edd5.html" title="SQLite 全文检索：快速高效的文本查询方案">SQLite 全文检索：快速高效的文本查询方案</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/c47f5f83.html" title="SQLite 在SQLite3数据库中识别重复行并删除它们">SQLite 在SQLite3数据库中识别重复行并删除它们</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2cb4eb41.html" title="hono Cloudflare Workers使用环境变量">hono Cloudflare Workers使用环境变量</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-color: #0000;"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

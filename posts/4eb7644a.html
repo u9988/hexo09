@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>真正正确使用Cloudflare SaaS优选功能 | 打包地</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在数字世界的浩瀚海洋中，Cloudflare SaaS功能犹如一座光芒四射的灯塔，为众多网站管理员和开发者指引着网络性能优化的方向。它的强大功能，正日益成为这个技术驱动时代的宠儿。但是，当你在互联网的汪洋中寻找一盏明灯，希望找到一篇真正全面、深入且能解决实际问题的指南时，你会发现这并非易事。许多教程如同海面上的浮萍，表面光鲜，却缺乏深度，甚至彼此抄袭，让初学者望而却步，也让经验丰富的开发者难以获得">
+<meta property="og:type" content="article">
+<meta property="og:title" content="真正正确使用Cloudflare SaaS优选功能">
+<meta property="og:url" content="http://example.com/posts/4eb7644a.html">
+<meta property="og:site_name" content="打包地">
+<meta property="og:description" content="在数字世界的浩瀚海洋中，Cloudflare SaaS功能犹如一座光芒四射的灯塔，为众多网站管理员和开发者指引着网络性能优化的方向。它的强大功能，正日益成为这个技术驱动时代的宠儿。但是，当你在互联网的汪洋中寻找一盏明灯，希望找到一篇真正全面、深入且能解决实际问题的指南时，你会发现这并非易事。许多教程如同海面上的浮萍，表面光鲜，却缺乏深度，甚至彼此抄袭，让初学者望而却步，也让经验丰富的开发者难以获得">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp">
+<meta property="article:published_time" content="2024-11-14T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-13T00:55:06.752Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="打包地,小姐姐,外星,转载,技术文章">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "真正正确使用Cloudflare SaaS优选功能",
+  "url": "http://example.com/posts/4eb7644a.html",
+  "image": "https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp",
+  "datePublished": "2024-11-14T00:00:00.000Z",
+  "dateModified": "2024-12-13T00:55:06.752Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp"><link rel="canonical" href="http://example.com/posts/4eb7644a.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '真正正确使用Cloudflare SaaS优选功能',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://bing.img.run/1366x768.php);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp" alt="Logo"><span class="site-name">打包地</span></a><a class="nav-page-title" href="/"><span class="site-name">真正正确使用Cloudflare SaaS优选功能</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">真正正确使用Cloudflare SaaS优选功能</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-14T00:00:00.000Z" title="发表于 2024-11-14 08:00:00">2024-11-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-13T00:55:06.752Z" title="更新于 2024-12-13 08:55:06">2024-12-13</time></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>在数字世界的浩瀚海洋中，Cloudflare SaaS功能犹如一座光芒四射的灯塔，为众多网站管理员和开发者指引着网络性能优化的方向。它的强大功能，正日益成为这个技术驱动时代的宠儿。但是，当你在互联网的汪洋中寻找一盏明灯，希望找到一篇真正全面、深入且能解决实际问题的指南时，你会发现这并非易事。许多教程如同海面上的浮萍，表面光鲜，却缺乏深度，甚至彼此抄袭，让初学者望而却步，也让经验丰富的开发者难以获得更深层次的洞察。 今天，让我们摒弃那些陈词滥调，通过一个域名案例，带你深入探索Cloudflare SaaS功能的神秘殿堂。</p>
+<p><a target="_blank" rel="noopener" href="https://del.pub/code/cfsaas.html">真正正确使用Cloudflare SaaS优选功能 | 猫东东 - 好好生活，停止摸鱼</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>Cloudflare账号，申请地址: <a target="_blank" rel="noopener" href="https://cloudflare.com/">https://cloudflare.com</a></li>
+<li>2个域名<ul>
+<li>cfd.del.pub 最终要使用的域名(这个需要在能分线路的解析商，国内的可以选择dnspod, alidns, 西数dns, 华为云dns, 国外的话,可以用<a target="_blank" rel="noopener" href="https://gcore.com/">GCORE</a>)</li>
+<li>sa6.us.kg 可以托管在cf上的域名，有很多，比如<a target="_blank" rel="noopener" href="https://register.us.kg/">us.kg</a>, <a target="_blank" rel="noopener" href="https://dot.nyc.mn/">nyc.mn</a>, <a target="_blank" rel="noopener" href="https://cloudns.org/">cloudns.org</a>皆可</li>
+</ul>
+</li>
+<li>1个演示空间<ul>
+<li><a target="_blank" rel="noopener" href="https://serv00.net/">serv00.net</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="建立主机"><a href="#建立主机" class="headerlink" title="建立主机"></a>建立主机</h2><p>以serv00的免费空间为例，其它空间大差不差，有就行</p>
+<p><strong>PS. 我们这里把cfd.del.pub作为 xafyi61.serv00.net 的别名，为了之后比对加速效果</strong></p>
+<p><img src="/images/d4873fcb5cb66302c14e84bdf2054c00.png" alt="serv00"></p>
+<h2 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h2><ol>
+<li>在Cloudflare上添加域名 sa6.us.kg 并等待他生效</li>
+</ol>
+<p><img src="/images/56991d761e348aa3d4606b75e48de04f.png" alt="真正正确使用Cloudflare SaaS优选功能"></p>
+<ol start="2">
+<li>在sa6.us.kg上添加CNAME记录，指向你的serv00.net域名就可以，这里尽量不要用顶级去CNAME，可以随便用个2级来CNAME，现在就用serv00.sa6.us.kg来做CNAME，<strong>一定要把代理状态打开，否则这个域名无法做回源</strong></li>
+</ol>
+<blockquote>
+<p>如果用顶级，可以用A记录，指向服务器IP</p>
+</blockquote>
+<p><img src="/images/2cb0f4c03c72db69e1ea5abb9b2c0d45.png" alt="添加一条CNAME解析"></p>
+<h3 id="把这条二级域名添加到回源域名"><a href="#把这条二级域名添加到回源域名" class="headerlink" title="把这条二级域名添加到回源域名"></a>把这条二级域名添加到回源域名</h3><ol>
+<li>在Cloudflare点击自己的域名，然后点击左侧的 SSL&#x2F;TLS -&gt; 自定义主机名，进入SAAS功能</li>
+</ol>
+<blockquote>
+<p>这里需要认证一下，支持信用卡和paypal，如果都没有，可以用一些大佬分享的虚拟信用卡来验证，不扣钱，也不涉及后续支付，只是认证</p>
+</blockquote>
+<p><img src="/images/886b24b7355f5a9e817e6d290163a8bb.png" alt="开始界面"></p>
+<p>添加之后，会告诉你初始化中，等待一下，就会生效了</p>
+<p><img src="/images/868ca6d7e9006c62ddc3c88c8e7e2dd8.png" alt="添加完成"></p>
+<p>其实现在访问一下 <a target="_blank" rel="noopener" href="https://serv00.sa6.us.kg,你会发现,可以直达你的空间了/">https://serv00.sa6.us.kg，你会发现，可以直达你的空间了</a>…</p>
+<blockquote>
+<p>其实就cf给你的二级域名强行绑定了一个你指定的域名</p>
+</blockquote>
+<p><img src="/images/094540b2800a11e08561485b64fac030.png" alt="可以访问了"></p>
+<h2 id="添加自定义域名-重点"><a href="#添加自定义域名-重点" class="headerlink" title="添加自定义域名[重点]"></a>添加自定义域名[重点]</h2><p>这会就可以把你要的域名绑定到你的这个回源域名上了</p>
+<ol>
+<li>点击添加自定义域名</li>
+</ol>
+<p><img src="/images/b630b94c3f4aeae09baa17d5bc58be7a.png" alt="添加自定义域名"></p>
+<ol start="2">
+<li>填写域名相关信息。以我们演示绑定的域名 cfd.del.pub 为例，填写如下信息：</li>
+</ol>
+<p><img src="/images/29bbca5c8b15ac8a6747dcab70912a89.png" alt="填写相关信息"></p>
+<ol start="3">
+<li>添加完成，等待证书和解析</li>
+</ol>
+<p><img src="/images/e16217f4bed914cf4c84c7c79ba8aa5d.png" alt="等待证书和解析"></p>
+<ol start="4">
+<li>[<strong>关键</strong>] 去del.pub的域名管理面板，添加解析记录，指向你的serv00.sa6.us.kg域名（我的域名在西数上，所以以西数为例）</li>
+</ol>
+<p><strong>PS. 因为西数没有单独的国内选项，所以我的解析是通用解析到visa.cn，国外指向serv00.sa6.us.kg，这里的解析，只要保证国外的解析到serv00.sa6.us.kg(回源域名)，国内的到你要加速的就好</strong></p>
+<p>一般演示如下： <img src="/images/20ce3aa3976055f9bd06c9bf65af2cec.png" alt="添加解析记录"></p>
+<p>这里推荐一个CF优选域名的地方： <a target="_blank" rel="noopener" href="https://www.wetest.vip/%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E4%BB%96%E6%8F%90%E4%BE%9B3%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%9D%A5%E5%8A%A0%E9%80%9F">https://www.wetest.vip/，可以看到他提供3个域名来加速</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*.cloudflare.182682.xyz    15分钟更新</span><br><span class="line">*.cloudfront.182682.xyz    15分钟更新</span><br><span class="line">*.gcore.182682.xyz         15分钟更新</span><br></pre></td></tr></table></figure>
+
+<p>我们选一个，将解析改为下面的</p>
+<p><img src="/images/526b93d25f6f6052a7199becffc7cae8.png" alt="更新解析"></p>
+<ol start="5">
+<li>最重要的，证书还没有验证，再添加一条</li>
+</ol>
+<p><img src="/images/4d283dc839d83ffa03b5647071a841c4.png" alt="获取要解析的内容"></p>
+<p>就能看到要验证证书，就要添加如下的TXT解析</p>
+<p><strong>PS. 这一条有个坑，一定注意，有部分解析商，在加值的时候，要加上双引号，不然值为空，点名 x10hosting</strong></p>
+<table>
+<thead>
+<tr>
+<th>记录名</th>
+<th>类型</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_acme-challenge.cfd.del.pub</td>
+<td>TXT</td>
+<td>lLB_4TOxh2UlJjekcll-ymXzal4YW0160UALqoqAgdM</td>
+</tr>
+</tbody></table>
+<p><img src="/images/b5980463416e3adaa24f2f17176f12af.png" alt="添加证书验证"></p>
+<ol start="6">
+<li>回到cf自定义域名这里，等待生效</li>
+</ol>
+<p><img src="/images/4d25924ec38e26bf77a0cd074cf11d21.png" alt="生效了"></p>
+<ol start="7">
+<li>SSL证书自动续期，你细细观察一下，在自定义主机最下面，有一个”自定义主机的DCV委派”，这就是自动续期域名的，点击展开，就可以看到具体说明，就是加一条CNAME到他指定的值，就可以实现自动续期证书</li>
+</ol>
+<p><img src="/images/ae435154058feccdd36f7982ef6abfef.png" alt="真正正确使用Cloudflare SaaS优选功能"></p>
+<p>当前给我们的是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_acme-challenge.&lt;hostname&gt; CNAME &lt;hostname&gt;.8130884beea37816.dcv.cloudflare.com</span><br></pre></td></tr></table></figure>
+
+<p>其中指的是我们自定义的域名，如：cfd.del.pub,替换之后就成了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_acme-challenge.cfd.del.pub CNAME cfd.del.pub.8130884beea37816.dcv.cloudflare.com</span><br></pre></td></tr></table></figure>
+
+<p>所以我们去del.pub的域名管理，把刚才添加的TXT解析，_acme-challenge.cfd.del.pub改为上面的，就OK啦(直接改上面的TXT，因为CNAME会和TXT冲突，CNAME是一个万恶之源)</p>
+<p><img src="/images/d6379a71ee18e31a62a08c056fe4d947.png" alt="真正正确使用Cloudflare SaaS优选功能"></p>
+<h3 id="验证速度"><a href="#验证速度" class="headerlink" title="验证速度"></a>验证速度</h3><p>可以直接访问:<a target="_blank" rel="noopener" href="https://cfd.del.pub/">https://cfd.del.pub/</a> 来测试速度</p>
+<p>也可以用工具来测(以boce.cn为例子)：</p>
+<ol>
+<li>优选前： <img src="/images/000e2db5d377045f328ed2148ea348f7.png" alt="真正正确使用Cloudflare SaaS优选功能"></li>
+<li>优选后： <img src="/images/9d6fdeaf33d378dd739292b6213603f9.png" alt="真正正确使用Cloudflare SaaS优选功能"></li>
+<li>同类的测速工具推荐:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>地址</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>帝恩斯</td>
+<td><a target="_blank" rel="noopener" href="https://www.boce.com/http">https://www.boce.com/http</a></td>
+<td>好像是dnspod的，每天有次数限制</td>
+</tr>
+<tr>
+<td>itdog</td>
+<td><a target="_blank" rel="noopener" href="https://www.itdog.cn/http">https://www.itdog.cn/http</a></td>
+<td>这个用的多，没次数限制</td>
+</tr>
+<tr>
+<td>炸了么</td>
+<td><a target="_blank" rel="noopener" href="https://zhale.me/">https://zhale.me</a></td>
+<td>这个也很好</td>
+</tr>
+</tbody></table>
+<p><a target="_blank" rel="noopener" href="https://del.pub/life/huaweiyun.html">华为云域名修改NS</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/4eb7644a.html">http://example.com/posts/4eb7644a.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">打包地</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description">打包地,小姐姐,外星,转载,技术文章</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E4%B8%BB%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">建立主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D"><span class="toc-number">3.</span> <span class="toc-text">解析域名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E8%BF%99%E6%9D%A1%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%9B%9E%E6%BA%90%E5%9F%9F%E5%90%8D"><span class="toc-number">3.1.</span> <span class="toc-text">把这条二级域名添加到回源域名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D-%E9%87%8D%E7%82%B9"><span class="toc-number">4.</span> <span class="toc-text">添加自定义域名[重点]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E9%80%9F%E5%BA%A6"><span class="toc-number">4.1.</span> <span class="toc-text">验证速度</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/" title="一次完整的Hexo写作流程">一次完整的Hexo写作流程</a><time datetime="2024-12-13T00:58:27.000Z" title="发表于 2024-12-13 08:58:27">2024-12-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/hello-world.html" title="Hello World">Hello World</a><time datetime="2024-12-12T08:06:58.656Z" title="发表于 2024-12-12 16:06:58">2024-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/d966edd5.html" title="SQLite 全文检索：快速高效的文本查询方案">SQLite 全文检索：快速高效的文本查询方案</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/c47f5f83.html" title="SQLite 在SQLite3数据库中识别重复行并删除它们">SQLite 在SQLite3数据库中识别重复行并删除它们</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2cb4eb41.html" title="hono Cloudflare Workers使用环境变量">hono Cloudflare Workers使用环境变量</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-color: #0000;"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

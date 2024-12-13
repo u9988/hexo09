@@ -1,0 +1,421 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>可以通过CLI或Cloudflare控制面板执行这些任务D1数据库 hono | 打包地</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="npm install hono 本指南指导您:  使用Cloudflare的本机无服务器SQL数据库D1创建您的第一个数据库。  创建模式并通过命令行查询数据库。  连接一个Cloudflare工作人员到您的D1数据库以编程方式查询您的D1数据库。   您可以通过CLI或Cloudflare控制面板执行这些任务。 备注 如果您已经有一个现有的Worker和一个现有的D1数据库，请按照本教程从3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可以通过CLI或Cloudflare控制面板执行这些任务D1数据库 hono">
+<meta property="og:url" content="http://example.com/posts/16671eb7.html">
+<meta property="og:site_name" content="打包地">
+<meta property="og:description" content="npm install hono 本指南指导您:  使用Cloudflare的本机无服务器SQL数据库D1创建您的第一个数据库。  创建模式并通过命令行查询数据库。  连接一个Cloudflare工作人员到您的D1数据库以编程方式查询您的D1数据库。   您可以通过CLI或Cloudflare控制面板执行这些任务。 备注 如果您已经有一个现有的Worker和一个现有的D1数据库，请按照本教程从3.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp">
+<meta property="article:published_time" content="2024-12-05T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-13T00:55:06.737Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="打包地,小姐姐,外星,转载,技术文章">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "可以通过CLI或Cloudflare控制面板执行这些任务D1数据库 hono",
+  "url": "http://example.com/posts/16671eb7.html",
+  "image": "https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp",
+  "datePublished": "2024-12-05T00:00:00.000Z",
+  "dateModified": "2024-12-13T00:55:06.737Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp"><link rel="canonical" href="http://example.com/posts/16671eb7.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '可以通过CLI或Cloudflare控制面板执行这些任务D1数据库 hono',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://bing.img.run/1366x768.php);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp" alt="Logo"><span class="site-name">打包地</span></a><a class="nav-page-title" href="/"><span class="site-name">可以通过CLI或Cloudflare控制面板执行这些任务D1数据库 hono</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">可以通过CLI或Cloudflare控制面板执行这些任务D1数据库 hono</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-05T00:00:00.000Z" title="发表于 2024-12-05 08:00:00">2024-12-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-13T00:55:06.737Z" title="更新于 2024-12-13 08:55:06">2024-12-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/yuanchuang/">yuanchuang</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/yuanchuang/wenzhang/">wenzhang</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>npm install hono</p>
+<p>本指南指导您:</p>
+<ul>
+<li><p>使用Cloudflare的本机无服务器SQL数据库D1创建您的第一个数据库。</p>
+</li>
+<li><p>创建模式并通过命令行查询数据库。</p>
+</li>
+<li><p>连接一个<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/">Cloudflare工作人员</a>到您的D1数据库以编程方式查询您的D1数据库。</p>
+</li>
+</ul>
+<p>您可以通过CLI或Cloudflare控制面板执行这些任务。</p>
+<p>备注</p>
+<p>如果您已经有一个现有的Worker和一个现有的D1数据库，请按照本教程从<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#3-bind-your-worker-to-your-d1-database">3.将Worker绑定到D1数据库</a>。</p>
+<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#prerequisites"></a></p>
+<ol>
+<li><p>注册一个<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/sign-up/workers-and-pages">Cloudflare帐户↗</a>。</p>
+</li>
+<li><p>安装<a target="_blank" rel="noopener" href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"><code>Node.js</code>↗</a>。</p>
+</li>
+</ol>
+<p>Node.js版本管理器</p>
+<p><a target="_blank" rel="noopener" href="https://volta.sh/"></a><a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm"></a><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/wrangler/install-and-update/"></a></p>
+<h2 id="1-创建一个工人"><a href="#1-创建一个工人" class="headerlink" title="1.创建一个工人"></a>1.创建一个工人</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#1-create-a-worker"></a></p>
+<p>创建一个新的Worker作为查询数据库的方法。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-951">CLI</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-952">仪表板</a></p>
+</li>
+</ul>
+<ol>
+<li><p>创建一个名为的新项目<code>d1-tutorial</code>通过运行:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-929">npm</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-930">纱线</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-931">pnpm</a></li>
+</ul>
+<p> 终端窗口<code>npm create cloudflare@latest -- d1-tutorial</code>对于 “设置”，请选择以下选项:</p>
+<ul>
+<li>用于_你想从什么开始？_,选择<code>Hello World example</code>。</li>
+<li>用于_您要使用哪个模板？_,选择<code>Hello World Worker</code>。</li>
+<li>用于_您想使用哪种语言？_,选择<code>TypeScript</code>。</li>
+<li>用于_你想使用git进行版本控制吗？_,选择<code>Yes</code>。</li>
+<li>用于_是否要部署应用程序？_,选择<code>No</code>(我们将在部署之前进行一些更改)。</li>
+</ul>
+<p> 这将创建一个新的<code>d1-tutorial</code>目录，如下图所示。</p>
+<ul>
+<li>目录d1-tutorial<ul>
+<li>目录node_modules&#x2F;</li>
+<li>目录试验&#x2F;</li>
+<li>目录src<ul>
+<li><strong>index.ts</strong></li>
+</ul>
+</li>
+<li>package-lock.json</li>
+<li>package.json</li>
+<li>testconfig.json</li>
+<li>vitest.config.mts</li>
+<li>worker-configuration.d.ts</li>
+<li><strong>牧马人.托姆</strong></li>
+</ul>
+</li>
+</ul>
+<p> 您的新<code>d1-tutorial</code>目录包括:</p>
+<ul>
+<li><p>A<code>&quot;Hello World&quot;</code> <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/get-started/guide/#3-write-code">工人</a>在<code>index.ts</code>。</p>
+</li>
+<li><p>A<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/wrangler/configuration/"><code>wrangler.toml</code></a>配置文件。<code>wrangler.toml</code>是你的<code>d1-tutorial</code>Worker访问您的D1数据库。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>备注</p>
+<p>如果您熟悉Cloudflare Workers，或者在持续集成 (CI) 环境中初始化项目，请通过设置<code>CI=true</code>作为运行时的环境变量<code>create cloudflare@latest</code>。</p>
+<p>例如:<code>CI=true npm create cloudflare@latest d1-tutorial --type=simple --git --ts --deploy=false</code>创建一个基本的 “Hello World” 项目。</p>
+<h2 id="2-创建数据库"><a href="#2-创建数据库" class="headerlink" title="2.创建数据库"></a>2.创建数据库</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#2-create-a-database"></a></p>
+<p>D1数据库在概念上类似于许多其他数据库: 数据库可以包含一个或多个表、查询这些表的能力以及可选的索引。D1使用熟悉的<a target="_blank" rel="noopener" href="https://www.sqlite.org/lang.html">SQL查询语言↗</a>(由SQLite使用)。</p>
+<p>创建第一个D1数据库:</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-923">CLI</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-924">仪表板</a></p>
+</li>
+</ul>
+<ol>
+<li><p>更改为您刚刚为Workers项目创建的目录:终端窗口<code>cd d1-tutorial</code></p>
+</li>
+<li><p>运行以下<code>wrangler d1</code>命令并为您的数据库命名。在本教程中，数据库名为<code>prod-d1-tutorial</code>:终端窗口<code>npx wrangler d1 create prod-d1-tutorial``✅ Successfully created DB &#39;prod-d1-tutorial&#39;[[d1_databases]]binding = &quot;DB&quot; # available in your Worker on env.DBdatabase_name = &quot;prod-d1-tutorial&quot;database_id = &quot;&lt;unique-ID-for-your-database&gt;&quot;</code></p>
+</li>
+</ol>
+<p>这将创建一个新的D1数据库并输出<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/runtime-apis/bindings/">装订</a>下一步需要配置。</p>
+<p>备注</p>
+<p>的<code>wrangler</code>命令行界面是Cloudflare的工具，用于在终端中管理和部署Workers应用程序和D1数据库。它是在你使用的时候安装的<code>npm create cloudflare@latest</code>初始化您的新项目。</p>
+<p>备注</p>
+<p>作为参考，一个好的数据库名称:</p>
+<ul>
+<li><p>使用小于32个字符的ASCII字符组合，并使用破折号 (-) 代替空格。</p>
+</li>
+<li><p>描述用例和环境。例如，“staging-db-web” 或 “production-db-backend”。</p>
+</li>
+<li><p>仅描述数据库，并且不在代码中直接引用。</p>
+</li>
+</ul>
+<h2 id="3-将Worker绑定到D1数据库"><a href="#3-将Worker绑定到D1数据库" class="headerlink" title="3.将Worker绑定到D1数据库"></a>3.将Worker绑定到D1数据库</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#3-bind-your-worker-to-your-d1-database"></a></p>
+<p>您必须为Worker创建绑定才能连接到D1数据库。<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/runtime-apis/bindings/">绑定</a>允许您的工作人员访问Cloudflare开发人员平台上的资源 (如D1)。</p>
+<p>要将D1数据库绑定到您的工作人员:</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-949">CLI</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-950">仪表板</a></p>
+</li>
+</ul>
+<p>您可以通过更新您的<code>wrangler.toml</code>文件。</p>
+<ol>
+<li><p>复制从获得的行<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#2-create-a-database">步骤2</a>从你的终端。</p>
+</li>
+<li><p>将它们添加到您的<code>wrangler.toml</code>文件。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-932">牧马人.托姆</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-933">牧马人.json</a></li>
+</ul>
+<p> <code>[[d1_databases]]binding = &quot;DB&quot; # available in your Worker on env.DBdatabase_name = &quot;prod-d1-tutorial&quot;database_id = &quot;&lt;unique-ID-for-your-database&gt;&quot;</code>具体而言:</p>
+<ul>
+<li><p>为设置的值 (字符串)<code>binding</code>是<strong>绑定名称</strong>,并用于在您的Worker中引用此数据库。在本教程中，将您的绑定命名为<code>DB</code>。</p>
+</li>
+<li><p>绑定名称必须为<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variables">有效的JavaScript变量名↗</a>。例如，<code>binding = &quot;MY_DB&quot;</code>或<code>binding = &quot;productionDB&quot;</code>都将是绑定的有效名称。</p>
+</li>
+<li><p>您的绑定在您的工作人员中可用，位于<code>env.&lt;BINDING_NAME&gt;</code>和D1<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/build-with-d1/d1-client-api/">客户端API</a>在此绑定上暴露。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>备注</p>
+<p>当您执行<code>wrangler d1 create</code>命令，则会自动安装客户端API包 (它实现D1 API和数据库类)。有关D1客户端API的详细信息，请参阅<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/build-with-d1/d1-client-api/">D1客户端API</a>。</p>
+<p>您还可以将D1数据库绑定到<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/pages/functions/">Pages函数</a>。有关更多信息，请参考<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/pages/functions/bindings/#d1-databases">D1的函数绑定</a>。</p>
+<h2 id="4-对D1数据库运行查询"><a href="#4-对D1数据库运行查询" class="headerlink" title="4.对D1数据库运行查询"></a>4.对D1数据库运行查询</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#4-run-a-query-against-your-d1-database"></a></p>
+<h3 id="配置D1数据库"><a href="#配置D1数据库" class="headerlink" title="配置D1数据库"></a>配置D1数据库</h3><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#configure-your-d1-database"></a></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-925">CLI</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-926">仪表板</a></p>
+</li>
+</ul>
+<p>与<code>wrangler.toml</code>正确配置，设置您的数据库。使用示例<code>schema.sql</code>下面的文件来初始化您的数据库。</p>
+<ol>
+<li><p>复制以下代码并将其保存为<code>schema.sql</code>文件中的<code>d1-tutorial</code>您在步骤1中创建的工作目录:<code>DROP TABLE IF EXISTS Customers;CREATE TABLE IF NOT EXISTS Customers (CustomerId INTEGER PRIMARY KEY, CompanyName TEXT, ContactName TEXT);INSERT INTO Customers (CustomerID, CompanyName, ContactName) VALUES (1, &#39;Alfreds Futterkiste&#39;, &#39;Maria Anders&#39;), (4, &#39;Around the Horn&#39;, &#39;Thomas Hardy&#39;), (11, &#39;Bs Beverages&#39;, &#39;Victoria Ashworth&#39;), (13, &#39;Bs Beverages&#39;, &#39;Random Name&#39;);</code></p>
+</li>
+<li><p>初始化数据库以首先在本地运行和测试。通过运行以下命令引导您的新D1数据库:终端窗口<code>npx wrangler d1 execute prod-d1-tutorial --local --file=./schema.sql</code></p>
+</li>
+<li><p>通过运行来验证您的数据是否在数据库中:终端窗口<code>npx wrangler d1 execute prod-d1-tutorial --local --command=&quot;SELECT * FROM Customers&quot;``🌀 Mapping SQL input into an array of statements🌀 Executing on local database production-db-backend (5f092302-3fbd-4247-a873-bf1afc5150b) from .wrangler/state/v3/d1:┌────────────┬─────────────────────┬───────────────────┐│ CustomerId │ CompanyName │ ContactName │├────────────┼─────────────────────┼───────────────────┤│ 1 │ Alfreds Futterkiste │ Maria Anders │├────────────┼─────────────────────┼───────────────────┤│ 4 │ Around the Horn │ Thomas Hardy │├────────────┼─────────────────────┼───────────────────┤│ 11 │ Bs Beverages │ Victoria Ashworth │├────────────┼─────────────────────┼───────────────────┤│ 13 │ Bs Beverages │ Random Name │└────────────┴─────────────────────┴───────────────────┘</code></p>
+</li>
+</ol>
+<h3 id="在Worker中编写查询"><a href="#在Worker中编写查询" class="headerlink" title="在Worker中编写查询"></a>在Worker中编写查询</h3><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#write-queries-within-your-worker"></a></p>
+<p>设置数据库后，从Worker中运行SQL查询。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-963">CLI</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-964">仪表板</a></p>
+</li>
+</ul>
+<ol>
+<li><p>导航到您的<code>d1-tutorial</code>Worker并打开<code>index.ts</code>文件。的<code>index.ts</code>文件是您配置Worker与d1的交互的位置。</p>
+</li>
+<li><p>清除的内容<code>index.ts</code>。</p>
+</li>
+<li><p>将以下代码段粘贴到您的<code>index.ts</code>文件:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-957">JavaScript</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-958">TypeScript</a></li>
+</ul>
+<p> index.js<code>export default &#123; async fetch(request, env) &#123; const &#123; pathname &#125; = new URL(request.url); if (pathname === &quot;/api/beverages&quot;) &#123; // If you did not use `DB` as your binding name, change it here const &#123; results &#125; = await env.DB.prepare( &quot;SELECT * FROM Customers WHERE CompanyName = ?&quot;, ) .bind(&quot;Bs Beverages&quot;) .all(); return Response.json(results); &#125; return new Response( &quot;Call /api/beverages to see everyone who works at Bs Beverages&quot;, ); &#125;,&#125;;</code>在上面的代码中，您:</p>
+<ol>
+<li><p>在TypeScript代码中定义与D1数据库的绑定。此绑定与<code>binding</code>您在中设置的值<code>wrangler.toml</code>下<code>[[d1_databases]]</code>。</p>
+</li>
+<li><p>使用查询您的数据库<code>env.DB.prepare</code>发出一个<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/build-with-d1/d1-client-api/">已准备的查询</a>带有占位符 (<code>?</code>在查询中)。</p>
+</li>
+<li><p>呼叫<code>bind()</code>安全可靠地将值绑定到该占位符。在实际应用程序中，您将允许用户定义<code>CompanyName</code>他们想列出结果。使用<code>bind()</code>防止用户对您的应用程序执行任意SQL (称为 “SQL注入”) 并删除或以其他方式修改您的数据库。</p>
+</li>
+<li><p>通过调用执行查询<code>all()</code>返回所有行 (如果查询返回none，则返回none)。</p>
+</li>
+<li><p>以JSON格式返回您的查询结果 (如果有)<code>Response.json(results)</code>。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>配置工作线程后，您可以在全局部署之前在本地测试项目。</p>
+<h2 id="5-部署数据库"><a href="#5-部署数据库" class="headerlink" title="5.部署数据库"></a>5.部署数据库</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#5-deploy-your-database"></a></p>
+<p>在Cloudflare的全球网络上部署数据库。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-927">CLI</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-928">仪表板</a></p>
+</li>
+</ul>
+<p>要使用Wrangler将Worker部署到生产环境，您必须首先重复<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#configure-your-d1-database">数据库配置</a>替换后的步骤<code>--local</code>标志与<code>--remote</code>标记以提供要读取的工作人员数据。这将创建数据库表并将数据导入到数据库的生产版本中。</p>
+<ol>
+<li><p>引导您的数据库与<code>schema.sql</code>在步骤4中创建的文件:终端窗口<code>npx wrangler d1 execute prod-d1-tutorial --remote --file=./schema.sql</code></p>
+</li>
+<li><p>通过运行以下操作来验证数据是否处于生产状态:终端窗口<code>npx wrangler d1 execute prod-d1-tutorial --remote --command=&quot;SELECT * FROM Customers&quot;</code></p>
+</li>
+<li><p>部署您的工作人员以使您的项目可在Internet上访问。运行时间:终端窗口<code>npx wrangler deploy``Outputs: https://d1-tutorial.&lt;YOUR_SUBDOMAIN&gt;.workers.dev</code>您现在可以访问新创建的项目的URL来查询您的实时数据库。例如，如果新Worker的URL为<code>d1-tutorial.&lt;YOUR_SUBDOMAIN&gt;.workers.dev</code>,访问<code>https://d1-tutorial.&lt;YOUR_SUBDOMAIN&gt;.workers.dev/api/beverages</code>向您的工作人员发送直接查询您的实时数据库的请求。</p>
+</li>
+<li><p>测试数据库是否成功运行。添加<code>/api/beverages</code>到提供的牧马人URL。例如，<code>https://d1-tutorial.&lt;YOUR_SUBDOMAIN&gt;.workers.dev/api/beverages</code>。</p>
+</li>
+</ol>
+<h2 id="6-可选-与牧马人本地开发"><a href="#6-可选-与牧马人本地开发" class="headerlink" title="6. (可选) 与牧马人本地开发"></a>6. (可选) 与牧马人本地开发</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#6-optional-develop-locally-with-wrangler"></a></p>
+<p>如果您将D1与Wrangler一起使用，则可以在本地测试数据库。在您的项目目录中:</p>
+<ol>
+<li><p>运行<code>wrangler dev</code>:终端窗口<code>npx wrangler dev</code>当你运行<code>wrangler dev</code>,牧马人提供了一个URL (很可能<code>localhost:8787</code>) 审查你的工人。</p>
+</li>
+<li><p>转到URL。页面显示<code>Call /api/beverages to see everyone who works at Bs Beverages</code>。</p>
+</li>
+<li><p>测试数据库是否成功运行。添加<code>/api/beverages</code>到提供的牧马人URL。例如，<code>localhost:8787/api/beverages</code>。</p>
+</li>
+</ol>
+<p>如果成功，浏览器将显示您的数据。</p>
+<p>备注</p>
+<p>如果您使用Wrangler，则只能在本地开发。您无法通过Cloudflare仪表板进行本地开发。</p>
+<h2 id="7-可选-删除您的数据库"><a href="#7-可选-删除您的数据库" class="headerlink" title="7. (可选) 删除您的数据库"></a>7. (可选) 删除您的数据库</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#7-optional-delete-your-database"></a></p>
+<p>删除数据库:</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-919">CLI</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-920">仪表板</a></p>
+</li>
+</ul>
+<p>运行时间:终端窗口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx wrangler d1 delete prod-d1-tutorial</span><br></pre></td></tr></table></figure>
+
+<p>如果您想删除您的员工:</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-921">CLI</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#tab-panel-922">仪表板</a></p>
+</li>
+</ul>
+<p>运行时间:终端窗口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx wrangler delete d1-tutorial</span><br></pre></td></tr></table></figure>
+
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#summary"></a></p>
+<p>在本教程中，您有:</p>
+<ul>
+<li><p>已创建D1数据库</p>
+</li>
+<li><p>创建了一个Worker来访问该数据库</p>
+</li>
+<li><p>在全球部署您的项目</p>
+</li>
+</ul>
+<h2 id="后续步骤"><a href="#后续步骤" class="headerlink" title="后续步骤"></a>后续步骤</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/get-started/#next-steps"></a></p>
+<p>如果您有任何功能请求或发现任何错误，请通过加入<a target="_blank" rel="noopener" href="https://discord.cloudflare.com/">Discord上的Cloudflare开发人员社区↗</a>。</p>
+<ul>
+<li><p>请参阅支持<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/wrangler/commands/#d1">D1的牧马人命令</a>。</p>
+</li>
+<li><p>学习如何使用<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/worker-api/">D1 Worker绑定api</a>在您的Worker中，并从<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/worker-api/#api-playground">API游乐场</a>。</p>
+</li>
+<li><p>探索<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/reference/community-projects/">基于D1的社区项目</a>。</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/16671eb7.html">http://example.com/posts/16671eb7.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">打包地</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description">打包地,小姐姐,外星,转载,技术文章</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">先决条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BA%BA"><span class="toc-number">2.</span> <span class="toc-text">1.创建一个工人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">2.创建数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B0%86Worker%E7%BB%91%E5%AE%9A%E5%88%B0D1%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">3.将Worker绑定到D1数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AF%B9D1%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%90%E8%A1%8C%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.</span> <span class="toc-text">4.对D1数据库运行查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AED1%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">5.1.</span> <span class="toc-text">配置D1数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Worker%E4%B8%AD%E7%BC%96%E5%86%99%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.2.</span> <span class="toc-text">在Worker中编写查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%83%A8%E7%BD%B2%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">5.部署数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%8F%AF%E9%80%89-%E4%B8%8E%E7%89%A7%E9%A9%AC%E4%BA%BA%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91"><span class="toc-number">7.</span> <span class="toc-text">6. (可选) 与牧马人本地开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8F%AF%E9%80%89-%E5%88%A0%E9%99%A4%E6%82%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">8.</span> <span class="toc-text">7. (可选) 删除您的数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">9.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%BB%AD%E6%AD%A5%E9%AA%A4"><span class="toc-number">10.</span> <span class="toc-text">后续步骤</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/" title="一次完整的Hexo写作流程">一次完整的Hexo写作流程</a><time datetime="2024-12-13T00:58:27.000Z" title="发表于 2024-12-13 08:58:27">2024-12-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/hello-world.html" title="Hello World">Hello World</a><time datetime="2024-12-12T08:06:58.656Z" title="发表于 2024-12-12 16:06:58">2024-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/d966edd5.html" title="SQLite 全文检索：快速高效的文本查询方案">SQLite 全文检索：快速高效的文本查询方案</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/c47f5f83.html" title="SQLite 在SQLite3数据库中识别重复行并删除它们">SQLite 在SQLite3数据库中识别重复行并删除它们</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2cb4eb41.html" title="hono Cloudflare Workers使用环境变量">hono Cloudflare Workers使用环境变量</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-color: #0000;"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
