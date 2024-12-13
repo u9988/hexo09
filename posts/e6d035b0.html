@@ -1,0 +1,1690 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Telegram Bot API | 打包地</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="UpdateThis object represents an incoming update.At most one of the optional parameters can be present in any given update.    Field Type Description    update_id Integer The update’s unique identifier">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Telegram Bot API">
+<meta property="og:url" content="http://example.com/posts/e6d035b0.html">
+<meta property="og:site_name" content="打包地">
+<meta property="og:description" content="UpdateThis object represents an incoming update.At most one of the optional parameters can be present in any given update.    Field Type Description    update_id Integer The update’s unique identifier">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp">
+<meta property="article:published_time" content="2024-11-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-13T00:55:06.768Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="打包地,小姐姐,外星,转载,技术文章">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Telegram Bot API",
+  "url": "http://example.com/posts/e6d035b0.html",
+  "image": "https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp",
+  "datePublished": "2024-11-30T00:00:00.000Z",
+  "dateModified": "2024-12-13T00:55:06.768Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp"><link rel="canonical" href="http://example.com/posts/e6d035b0.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Telegram Bot API',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://bing.img.run/1366x768.php);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp" alt="Logo"><span class="site-name">打包地</span></a><a class="nav-page-title" href="/"><span class="site-name">Telegram Bot API</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Telegram Bot API</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-30T00:00:00.000Z" title="发表于 2024-11-30 08:00:00">2024-11-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-13T00:55:06.768Z" title="更新于 2024-12-13 08:55:06">2024-12-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/wenzhang/">wenzhang</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h4 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h4><p>This <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#available-types">object</a> represents an incoming update.<br>At most <strong>one</strong> of the optional parameters can be present in any given update.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>update_id</td>
+<td>Integer</td>
+<td>The update’s unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you’re using <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#setwebhook">webhooks</a>, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.</td>
+</tr>
+<tr>
+<td>message</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a></td>
+<td><em>Optional</em>. New incoming message of any kind - text, photo, sticker, etc.</td>
+</tr>
+<tr>
+<td>edited_message</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a></td>
+<td><em>Optional</em>. New version of a message that is known to the bot and was edited. This update may at times be triggered by changes to message fields that are either unavailable or not actively used by your bot.</td>
+</tr>
+<tr>
+<td>channel_post</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a></td>
+<td><em>Optional</em>. New incoming channel post of any kind - text, photo, sticker, etc.</td>
+</tr>
+<tr>
+<td>edited_channel_post</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a></td>
+<td><em>Optional</em>. New version of a channel post that is known to the bot and was edited. This update may at times be triggered by changes to message fields that are either unavailable or not actively used by your bot.</td>
+</tr>
+<tr>
+<td>business_connection</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#businessconnection">BusinessConnection</a></td>
+<td><em>Optional</em>. The bot was connected to or disconnected from a business account, or a user edited an existing connection with the bot</td>
+</tr>
+<tr>
+<td>business_message</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a></td>
+<td><em>Optional</em>. New message from a connected business account</td>
+</tr>
+<tr>
+<td>edited_business_message</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a></td>
+<td><em>Optional</em>. New version of a message from a connected business account</td>
+</tr>
+<tr>
+<td>deleted_business_messages</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#businessmessagesdeleted">BusinessMessagesDeleted</a></td>
+<td><em>Optional</em>. Messages were deleted from a connected business account</td>
+</tr>
+<tr>
+<td>message_reaction</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#messagereactionupdated">MessageReactionUpdated</a></td>
+<td><em>Optional</em>. A reaction to a message was changed by a user. The bot must be an administrator in the chat and must explicitly specify in the list of <em>allowed_updates</em> to receive these updates. The update isn’t received for reactions set by bots.<code>&quot;message_reaction&quot;</code></td>
+</tr>
+<tr>
+<td>message_reaction_count</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#messagereactioncountupdated">MessageReactionCountUpdated</a></td>
+<td><em>Optional</em>. Reactions to a message with anonymous reactions were changed. The bot must be an administrator in the chat and must explicitly specify in the list of <em>allowed_updates</em> to receive these updates. The updates are grouped and can be sent with delay up to a few minutes.<code>&quot;message_reaction_count&quot;</code></td>
+</tr>
+<tr>
+<td>inline_query</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#inlinequery">InlineQuery</a></td>
+<td><em>Optional</em>. New incoming <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#inline-mode">inline</a> query</td>
+</tr>
+<tr>
+<td>chosen_inline_result</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#choseninlineresult">ChosenInlineResult</a></td>
+<td><em>Optional</em>. The result of an <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#inline-mode">inline</a> query that was chosen by a user and sent to their chat partner. Please see our documentation on the <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/inline#collecting-feedback">feedback collecting</a> for details on how to enable these updates for your bot.</td>
+</tr>
+<tr>
+<td>callback_query</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#callbackquery">CallbackQuery</a></td>
+<td><em>Optional</em>. New incoming callback query</td>
+</tr>
+<tr>
+<td>shipping_query</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#shippingquery">ShippingQuery</a></td>
+<td><em>Optional</em>. New incoming shipping query. Only for invoices with flexible price</td>
+</tr>
+<tr>
+<td>pre_checkout_query</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#precheckoutquery">PreCheckoutQuery</a></td>
+<td><em>Optional</em>. New incoming pre-checkout query. Contains full information about checkout</td>
+</tr>
+<tr>
+<td>purchased_paid_media</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#paidmediapurchased">PaidMediaPurchased</a></td>
+<td><em>Optional</em>. A user purchased paid media with a non-empty payload sent by the bot in a non-channel chat</td>
+</tr>
+<tr>
+<td>poll</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#poll">Poll</a></td>
+<td><em>Optional</em>. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot</td>
+</tr>
+<tr>
+<td>poll_answer</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#pollanswer">PollAnswer</a></td>
+<td><em>Optional</em>. A user changed their answer in a non-anonymous poll. Bots receive new votes only in polls that were sent by the bot itself.</td>
+</tr>
+<tr>
+<td>my_chat_member</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatmemberupdated">ChatMemberUpdated</a></td>
+<td><em>Optional</em>. The bot’s chat member status was updated in a chat. For private chats, this update is received only when the bot is blocked or unblocked by the user.</td>
+</tr>
+<tr>
+<td>chat_member</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatmemberupdated">ChatMemberUpdated</a></td>
+<td><em>Optional</em>. A chat member’s status was updated in a chat. The bot must be an administrator in the chat and must explicitly specify in the list of <em>allowed_updates</em> to receive these updates.<code>&quot;chat_member&quot;</code></td>
+</tr>
+<tr>
+<td>chat_join_request</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatjoinrequest">ChatJoinRequest</a></td>
+<td><em>Optional</em>. A request to join the chat has been sent. The bot must have the <em>can_invite_users</em> administrator right in the chat to receive these updates.</td>
+</tr>
+<tr>
+<td>chat_boost</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatboostupdated">ChatBoostUpdated</a></td>
+<td><em>Optional</em>. A chat boost was added or changed. The bot must be an administrator in the chat to receive these updates.</td>
+</tr>
+<tr>
+<td>removed_chat_boost</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatboostremoved">ChatBoostRemoved</a></td>
+<td><em>Optional</em>. A boost was removed from a chat. The bot must be an administrator in the chat to receive these updates.</td>
+</tr>
+</tbody></table>
+<h4 id="getUpdates"><a href="#getUpdates" class="headerlink" title="getUpdates"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getupdates"></a>getUpdates</h4><p>Use this method to receive incoming updates using long polling (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Push_technology#Long_polling">wiki</a>). Returns an Array of <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#update">Update</a> objects.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>offset</td>
+<td>Integer</td>
+<td>Optional</td>
+<td>Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getupdates">getUpdates</a> is called with an <em>offset</em> higher than its <em>update_id</em>. The negative offset can be specified to retrieve updates starting from <em>-offset</em> update from the end of the updates queue. All previous updates will be forgotten.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Integer</td>
+<td>Optional</td>
+<td>Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>Integer</td>
+<td>Optional</td>
+<td>Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive, short polling should be used for testing purposes only.</td>
+</tr>
+<tr>
+<td>allowed_updates</td>
+<td>Array of String</td>
+<td>Optional</td>
+<td>A JSON-serialized list of the update types you want your bot to receive. For example, specify to only receive updates of these types. See <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#update">Update</a> for a complete list of available update types. Specify an empty list to receive all update types except <em>chat_member</em>, <em>message_reaction</em>, and <em>message_reaction_count</em> (default). If not specified, the previous setting will be used.</td>
+</tr>
+</tbody></table>
+<p>Please note that this parameter doesn’t affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.<code>[&quot;message&quot;, &quot;edited_channel_post&quot;, &quot;callback_query&quot;]</code> |</p>
+<blockquote>
+<p><strong>Notes</strong><br><strong>1.</strong> This method will not work if an outgoing webhook is set up.<br><strong>2.</strong> In order to avoid getting duplicate updates, recalculate <em>offset</em> after each server response.</p>
+</blockquote>
+<h4 id="setWebhook"><a href="#setWebhook" class="headerlink" title="setWebhook"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#setwebhook"></a>setWebhook</h4><p>Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#update">Update</a>. In case of an unsuccessful request, we will give up after a reasonable amount of attempts. Returns <em>True</em> on success.</p>
+<p>使用此方法指定URL，并通过传出的webhook接收传入的更新。每当机器人有更新时，我们将向指定的URL发送HTTPS POST请求，其中包含json序列化的update。如果请求不成功，我们将在合理次数的尝试后放弃。成功时返回True。</p>
+<p>If you’d like to make sure that the webhook was set by you, you can specify secret data in the parameter <em>secret_token</em>. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.</p>
+<p>如果您想确保webhook是由您设置的，您可以在参数secret中指定秘密数据_令牌。如果指定，请求将包含一个标题“X-Telegram-Bot-Api-Secret-Token”，其内容为秘密令牌。</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>url</td>
+<td>String</td>
+<td>Yes</td>
+<td>HTTPS URL to send updates to. Use an empty string to remove webhook integration</td>
+</tr>
+<tr>
+<td>发送更新到的HTTPS URL。使用空字符串删除webhook集成</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>certificate</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#inputfile">InputFile</a></td>
+<td>Optional</td>
+<td></td>
+</tr>
+<tr>
+<td>可选</td>
+<td>Upload your public key certificate so that the root certificate in use can be checked. See our <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/self-signed">self-signed guide</a> for details.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>上传您的公钥证书，以便可以检查正在使用的根证书。有关详细信息，请参阅我们的自签名指南。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ip_address</td>
+<td>String</td>
+<td>Optional</td>
+<td></td>
+</tr>
+<tr>
+<td>可选</td>
+<td>The fixed IP address which will be used to send webhook requests instead of the IP address resolved through DNS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>用于发送webhook请求的固定IP地址，而不是通过DNS解析的IP地址</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>max_connections</td>
+<td>Integer</td>
+<td>Optional</td>
+<td></td>
+</tr>
+<tr>
+<td>可选</td>
+<td>The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to <em>40</em>. Use lower values to limit the load on your bot’s server, and higher values to increase your bot’s throughput.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>允许同时连接到webhook进行更新传递的最大HTTPS连接数，1-100。默认为40。使用较低的值来限制bot服务器上的负载，使用较高的值来增加bot的吞吐量。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>allowed_updates</td>
+<td>Array of String</td>
+<td>Optional</td>
+<td></td>
+</tr>
+<tr>
+<td>可选</td>
+<td>A JSON-serialized list of the update types you want your bot to receive. For example, specify to only receive updates of these types. See <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#update">Update</a> for a complete list of available update types. Specify an empty list to receive all update types except <em>chat_member</em>, <em>message_reaction</em>, and <em>message_reaction_count</em> (default). If not specified, the previous setting will be used.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Please note that this parameter doesn’t affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>您希望bot接收的更新类型的json序列化列表。例如，指定只接收这些类型的更新。有关可用更新类型的完整列表，请参阅更新。指定一个空列表来接收除聊天之外的所有更新类型_成员信息_反应和信息_反应_数(默认)。如果未指定，将使用先前的设置。请注意，此参数不会影响调用setWebhook之前创建的更新，因此可能会在短时间内收到不需要的更新time.<code>[&quot;message&quot;, &quot;edited_channel_post&quot;, &quot;callback_query&quot;]</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>drop_pending_updates</td>
+<td>Boolean</td>
+<td>Optional</td>
+<td></td>
+</tr>
+<tr>
+<td>可选</td>
+<td>Pass <em>True</em> to drop all pending updates</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>传递True以删除所有挂起的更新</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>secret_token</td>
+<td>String</td>
+<td>Optional</td>
+<td></td>
+</tr>
+<tr>
+<td>可选</td>
+<td>A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters , , , and are allowed. The header is useful to ensure that the request comes from a webhook set by you.<code>A-Za-z0-9_-</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>在每个webhook请求中以“X-Telegram-Bot-Api-Secret-Token”头发送的秘密令牌，1-256个字符。只允许字符、、和。头信息对于确保请求来自你设置的webhook非常有用。A-Za-z0-9_-</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Notes</strong><br><strong>1.</strong> You will not be able to receive updates using <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getupdates">getUpdates</a> for as long as an outgoing webhook is set up.<br><strong>2.</strong> To use a self-signed certificate, you need to upload your <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/self-signed">public key certificate</a> using <em>certificate</em> parameter. Please upload as InputFile, sending a String will not work.<br><strong>3.</strong> Ports currently supported <em>for webhooks</em>: <strong>443, 80, 88, 8443</strong>.</p>
+<p>If you’re having any trouble setting up webhooks, please check out this <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/webhooks">amazing guide to webhooks</a>.</p>
+</blockquote>
+<h4 id="deleteWebhook"><a href="#deleteWebhook" class="headerlink" title="deleteWebhook"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#deletewebhook"></a>deleteWebhook</h4><p>Use this method to remove webhook integration if you decide to switch back to <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getupdates">getUpdates</a>. Returns <em>True</em> on success.</p>
+<p>如果您决定切换回getuupdates，可以使用此方法删除webhook集成。成功时返回True。</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>drop_pending_updates</td>
+<td>Boolean</td>
+<td>Optional</td>
+<td>Pass <em>True</em> to drop all pending updates</td>
+</tr>
+<tr>
+<td>传递True以删除所有挂起的更新</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="getWebhookInfo"><a href="#getWebhookInfo" class="headerlink" title="getWebhookInfo"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getwebhookinfo"></a>getWebhookInfo</h4><p>Use this method to get current webhook status. Requires no parameters. On success, returns a <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#webhookinfo">WebhookInfo</a> object. If the bot is using <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getupdates">getUpdates</a>, will return an object with the <em>url</em> field empty.</p>
+<h4 id="WebhookInfo"><a href="#WebhookInfo" class="headerlink" title="WebhookInfo"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#webhookinfo"></a>WebhookInfo</h4><p>Describes the current status of a webhook.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>url</td>
+<td>String</td>
+<td>Webhook URL, may be empty if webhook is not set up</td>
+</tr>
+<tr>
+<td>has_custom_certificate</td>
+<td>Boolean</td>
+<td><em>True</em>, if a custom certificate was provided for webhook certificate checks</td>
+</tr>
+<tr>
+<td>pending_update_count</td>
+<td>Integer</td>
+<td>Number of updates awaiting delivery</td>
+</tr>
+<tr>
+<td>ip_address</td>
+<td>String</td>
+<td><em>Optional</em>. Currently used webhook IP address</td>
+</tr>
+<tr>
+<td>last_error_date</td>
+<td>Integer</td>
+<td><em>Optional</em>. Unix time for the most recent error that happened when trying to deliver an update via webhook</td>
+</tr>
+<tr>
+<td>last_error_message</td>
+<td>String</td>
+<td><em>Optional</em>. Error message in human-readable format for the most recent error that happened when trying to deliver an update via webhook</td>
+</tr>
+<tr>
+<td>last_synchronization_error_date</td>
+<td>Integer</td>
+<td><em>Optional</em>. Unix time of the most recent error that happened when trying to synchronize available updates with Telegram datacenters</td>
+</tr>
+<tr>
+<td>max_connections</td>
+<td>Integer</td>
+<td><em>Optional</em>. The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery</td>
+</tr>
+<tr>
+<td>allowed_updates</td>
+<td>Array of String</td>
+<td><em>Optional</em>. A list of update types the bot is subscribed to. Defaults to all update types except <em>chat_member</em></td>
+</tr>
+</tbody></table>
+<h3 id="Available-types"><a href="#Available-types" class="headerlink" title="Available types"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#available-types"></a>Available types</h3><p>All types used in the Bot API responses are represented as JSON-objects.</p>
+<p>It is safe to use 32-bit signed integers for storing all <strong>Integer</strong> fields unless otherwise noted.</p>
+<blockquote>
+<p><strong>Optional</strong> fields may be not returned when irrelevant.</p>
+</blockquote>
+<h4 id="User"><a href="#User" class="headerlink" title="User"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#user"></a>User</h4><p>This object represents a Telegram user or bot.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty&#x2F;silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.</td>
+</tr>
+<tr>
+<td>is_bot</td>
+<td>Boolean</td>
+<td><em>True</em>, if this user is a bot</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>String</td>
+<td>User’s or bot’s first name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String</td>
+<td><em>Optional</em>. User’s or bot’s last name</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String</td>
+<td><em>Optional</em>. User’s or bot’s username</td>
+</tr>
+<tr>
+<td>language_code</td>
+<td>String</td>
+<td><em>Optional</em>. <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a> of the user’s language</td>
+</tr>
+<tr>
+<td>is_premium</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if this user is a Telegram Premium user</td>
+</tr>
+<tr>
+<td>added_to_attachment_menu</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if this user added the bot to the attachment menu</td>
+</tr>
+<tr>
+<td>can_join_groups</td>
+<td>Boolean</td>
+<td><em>Optional</em>. <em>True</em>, if the bot can be invited to groups. Returned only in <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getme">getMe</a>.</td>
+</tr>
+<tr>
+<td>can_read_all_group_messages</td>
+<td>Boolean</td>
+<td><em>Optional</em>. <em>True</em>, if <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/features#privacy-mode">privacy mode</a> is disabled for the bot. Returned only in <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getme">getMe</a>.</td>
+</tr>
+<tr>
+<td>supports_inline_queries</td>
+<td>Boolean</td>
+<td><em>Optional</em>. <em>True</em>, if the bot supports inline queries. Returned only in <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getme">getMe</a>.</td>
+</tr>
+<tr>
+<td>can_connect_to_business</td>
+<td>Boolean</td>
+<td><em>Optional</em>. <em>True</em>, if the bot can be connected to a Telegram Business account to receive its messages. Returned only in <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getme">getMe</a>.</td>
+</tr>
+<tr>
+<td>has_main_web_app</td>
+<td>Boolean</td>
+<td><em>Optional</em>. <em>True</em>, if the bot has a main Web App. Returned only in <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getme">getMe</a>.</td>
+</tr>
+</tbody></table>
+<h4 id="Chat"><a href="#Chat" class="headerlink" title="Chat"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chat"></a>Chat</h4><p>This object represents a chat.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty&#x2F;silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>Type of the chat, can be either “private”, “group”, “supergroup” or “channel”</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td><em>Optional</em>. Title, for supergroups, channels and group chats</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String</td>
+<td><em>Optional</em>. Username, for private chats, supergroups and channels if available</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>String</td>
+<td><em>Optional</em>. First name of the other party in a private chat</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String</td>
+<td><em>Optional</em>. Last name of the other party in a private chat</td>
+</tr>
+<tr>
+<td>is_forum</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if the supergroup chat is a forum (has <a target="_blank" rel="noopener" href="https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups">topics</a> enabled)</td>
+</tr>
+</tbody></table>
+<h4 id="ChatFullInfo"><a href="#ChatFullInfo" class="headerlink" title="ChatFullInfo"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatfullinfo"></a>ChatFullInfo</h4><p>This object contains full information about a chat.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty&#x2F;silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>Type of the chat, can be either “private”, “group”, “supergroup” or “channel”</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td><em>Optional</em>. Title, for supergroups, channels and group chats</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String</td>
+<td><em>Optional</em>. Username, for private chats, supergroups and channels if available</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>String</td>
+<td><em>Optional</em>. First name of the other party in a private chat</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String</td>
+<td><em>Optional</em>. Last name of the other party in a private chat</td>
+</tr>
+<tr>
+<td>is_forum</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if the supergroup chat is a forum (has <a target="_blank" rel="noopener" href="https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups">topics</a> enabled)</td>
+</tr>
+<tr>
+<td>accent_color_id</td>
+<td>Integer</td>
+<td>Identifier of the accent color for the chat name and backgrounds of the chat photo, reply header, and link preview. See <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#accent-colors">accent colors</a> for more details.</td>
+</tr>
+<tr>
+<td>max_reaction_count</td>
+<td>Integer</td>
+<td>The maximum number of reactions that can be set on a message in the chat</td>
+</tr>
+<tr>
+<td>photo</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatphoto">ChatPhoto</a></td>
+<td><em>Optional</em>. Chat photo</td>
+</tr>
+<tr>
+<td>active_usernames</td>
+<td>Array of String</td>
+<td><em>Optional</em>. If non-empty, the list of all <a target="_blank" rel="noopener" href="https://telegram.org/blog/topics-in-groups-collectible-usernames#collectible-usernames">active chat usernames</a>; for private chats, supergroups and channels</td>
+</tr>
+<tr>
+<td>birthdate</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#birthdate">Birthdate</a></td>
+<td><em>Optional</em>. For private chats, the date of birth of the user</td>
+</tr>
+<tr>
+<td>business_intro</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#businessintro">BusinessIntro</a></td>
+<td><em>Optional</em>. For private chats with business accounts, the intro of the business</td>
+</tr>
+<tr>
+<td>business_location</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#businesslocation">BusinessLocation</a></td>
+<td><em>Optional</em>. For private chats with business accounts, the location of the business</td>
+</tr>
+<tr>
+<td>business_opening_hours</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#businessopeninghours">BusinessOpeningHours</a></td>
+<td><em>Optional</em>. For private chats with business accounts, the opening hours of the business</td>
+</tr>
+<tr>
+<td>personal_chat</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chat">Chat</a></td>
+<td><em>Optional</em>. For private chats, the personal channel of the user</td>
+</tr>
+<tr>
+<td>available_reactions</td>
+<td>Array of <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#reactiontype">ReactionType</a></td>
+<td><em>Optional</em>. List of available reactions allowed in the chat. If omitted, then all <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#reactiontypeemoji">emoji reactions</a> are allowed.</td>
+</tr>
+<tr>
+<td>background_custom_emoji_id</td>
+<td>String</td>
+<td><em>Optional</em>. Custom emoji identifier of the emoji chosen by the chat for the reply header and link preview background</td>
+</tr>
+<tr>
+<td>profile_accent_color_id</td>
+<td>Integer</td>
+<td><em>Optional</em>. Identifier of the accent color for the chat’s profile background. See <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#profile-accent-colors">profile accent colors</a> for more details.</td>
+</tr>
+<tr>
+<td>profile_background_custom_emoji_id</td>
+<td>String</td>
+<td><em>Optional</em>. Custom emoji identifier of the emoji chosen by the chat for its profile background</td>
+</tr>
+<tr>
+<td>emoji_status_custom_emoji_id</td>
+<td>String</td>
+<td><em>Optional</em>. Custom emoji identifier of the emoji status of the chat or the other party in a private chat</td>
+</tr>
+<tr>
+<td>emoji_status_expiration_date</td>
+<td>Integer</td>
+<td><em>Optional</em>. Expiration date of the emoji status of the chat or the other party in a private chat, in Unix time, if any</td>
+</tr>
+<tr>
+<td>bio</td>
+<td>String</td>
+<td><em>Optional</em>. Bio of the other party in a private chat</td>
+</tr>
+<tr>
+<td>has_private_forwards</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if privacy settings of the other party in the private chat allows to use links only in chats with the user<code>tg://user?id=&lt;user_id&gt;</code></td>
+</tr>
+<tr>
+<td>has_restricted_voice_and_video_messages</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if the privacy settings of the other party restrict sending voice and video note messages in the private chat</td>
+</tr>
+<tr>
+<td>join_to_send_messages</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if users need to join the supergroup before they can send messages</td>
+</tr>
+<tr>
+<td>join_by_request</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if all users directly joining the supergroup without using an invite link need to be approved by supergroup administrators</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td><em>Optional</em>. Description, for groups, supergroups and channel chats</td>
+</tr>
+<tr>
+<td>invite_link</td>
+<td>String</td>
+<td><em>Optional</em>. Primary invite link, for groups, supergroups and channel chats</td>
+</tr>
+<tr>
+<td>pinned_message</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a></td>
+<td><em>Optional</em>. The most recent pinned message (by sending date)</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatpermissions">ChatPermissions</a></td>
+<td><em>Optional</em>. Default chat member permissions, for groups and supergroups</td>
+</tr>
+<tr>
+<td>can_send_paid_media</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if paid media messages can be sent or forwarded to the channel chat. The field is available only for channel chats.</td>
+</tr>
+<tr>
+<td>slow_mode_delay</td>
+<td>Integer</td>
+<td><em>Optional</em>. For supergroups, the minimum allowed delay between consecutive messages sent by each unprivileged user; in seconds</td>
+</tr>
+<tr>
+<td>unrestrict_boost_count</td>
+<td>Integer</td>
+<td><em>Optional</em>. For supergroups, the minimum number of boosts that a non-administrator user needs to add in order to ignore slow mode and chat permissions</td>
+</tr>
+<tr>
+<td>message_auto_delete_time</td>
+<td>Integer</td>
+<td><em>Optional</em>. The time after which all messages sent to the chat will be automatically deleted; in seconds</td>
+</tr>
+<tr>
+<td>has_aggressive_anti_spam_enabled</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if aggressive anti-spam checks are enabled in the supergroup. The field is only available to chat administrators.</td>
+</tr>
+<tr>
+<td>has_hidden_members</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if non-administrators can only get the list of bots and administrators in the chat</td>
+</tr>
+<tr>
+<td>has_protected_content</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if messages from the chat can’t be forwarded to other chats</td>
+</tr>
+<tr>
+<td>has_visible_history</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if new chat members will have access to old messages; available only to chat administrators</td>
+</tr>
+<tr>
+<td>sticker_set_name</td>
+<td>String</td>
+<td><em>Optional</em>. For supergroups, name of the group sticker set</td>
+</tr>
+<tr>
+<td>can_set_sticker_set</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if the bot can change the group sticker set</td>
+</tr>
+<tr>
+<td>custom_emoji_sticker_set_name</td>
+<td>String</td>
+<td><em>Optional</em>. For supergroups, the name of the group’s custom emoji sticker set. Custom emoji from this set can be used by all users and bots in the group.</td>
+</tr>
+<tr>
+<td>linked_chat_id</td>
+<td>Integer</td>
+<td><em>Optional</em>. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty&#x2F;silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.</td>
+</tr>
+<tr>
+<td>location</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatlocation">ChatLocation</a></td>
+<td><em>Optional</em>. For supergroups, the location to which the supergroup is connected</td>
+</tr>
+</tbody></table>
+<h4 id="Message"><a href="#Message" class="headerlink" title="Message"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message"></a>Message</h4><p>This object represents a message.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>message_id</td>
+<td>Integer</td>
+<td>Unique message identifier inside this chat. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent</td>
+</tr>
+<tr>
+<td>message_thread_id</td>
+<td>Integer</td>
+<td><em>Optional</em>. Unique identifier of a message thread to which the message belongs; for supergroups only</td>
+</tr>
+<tr>
+<td>from</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#user">User</a></td>
+<td><em>Optional</em>. Sender of the message; may be empty for messages sent to channels. For backward compatibility, if the message was sent on behalf of a chat, the field contains a fake sender user in non-channel chats</td>
+</tr>
+<tr>
+<td>sender_chat</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chat">Chat</a></td>
+<td><em>Optional</em>. Sender of the message when sent on behalf of a chat. For example, the supergroup itself for messages sent by its anonymous administrators or a linked channel for messages automatically forwarded to the channel’s discussion group. For backward compatibility, if the message was sent on behalf of a chat, the field <em>from</em> contains a fake sender user in non-channel chats.</td>
+</tr>
+<tr>
+<td>sender_boost_count</td>
+<td>Integer</td>
+<td><em>Optional</em>. If the sender of the message boosted the chat, the number of boosts added by the user</td>
+</tr>
+<tr>
+<td>sender_business_bot</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#user">User</a></td>
+<td><em>Optional</em>. The bot that actually sent the message on behalf of the business account. Available only for outgoing messages sent on behalf of the connected business account.</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Integer</td>
+<td>Date the message was sent in Unix time. It is always a positive number, representing a valid date.</td>
+</tr>
+<tr>
+<td>business_connection_id</td>
+<td>String</td>
+<td><em>Optional</em>. Unique identifier of the business connection from which the message was received. If non-empty, the message belongs to a chat of the corresponding business account that is independent from any potential bot chat which might share the same identifier.</td>
+</tr>
+<tr>
+<td>chat</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chat">Chat</a></td>
+<td>Chat the message belongs to</td>
+</tr>
+<tr>
+<td>forward_origin</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#messageorigin">MessageOrigin</a></td>
+<td><em>Optional</em>. Information about the original message for forwarded messages</td>
+</tr>
+<tr>
+<td>is_topic_message</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if the message is sent to a forum topic</td>
+</tr>
+<tr>
+<td>is_automatic_forward</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if the message is a channel post that was automatically forwarded to the connected discussion group</td>
+</tr>
+<tr>
+<td>reply_to_message</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a></td>
+<td><em>Optional</em>. For replies in the same chat and message thread, the original message. Note that the Message object in this field will not contain further <em>reply_to_message</em> fields even if it itself is a reply.</td>
+</tr>
+<tr>
+<td>external_reply</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#externalreplyinfo">ExternalReplyInfo</a></td>
+<td><em>Optional</em>. Information about the message that is being replied to, which may come from another chat or forum topic</td>
+</tr>
+<tr>
+<td>quote</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#textquote">TextQuote</a></td>
+<td><em>Optional</em>. For replies that quote part of the original message, the quoted part of the message</td>
+</tr>
+<tr>
+<td>reply_to_story</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#story">Story</a></td>
+<td><em>Optional</em>. For replies to a story, the original story</td>
+</tr>
+<tr>
+<td>via_bot</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#user">User</a></td>
+<td><em>Optional</em>. Bot through which the message was sent</td>
+</tr>
+<tr>
+<td>edit_date</td>
+<td>Integer</td>
+<td><em>Optional</em>. Date the message was last edited in Unix time</td>
+</tr>
+<tr>
+<td>has_protected_content</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if the message can’t be forwarded</td>
+</tr>
+<tr>
+<td>is_from_offline</td>
+<td>True</td>
+<td><em>Optional</em>. True, if the message was sent by an implicit action, for example, as an away or a greeting business message, or as a scheduled message</td>
+</tr>
+<tr>
+<td>media_group_id</td>
+<td>String</td>
+<td><em>Optional</em>. The unique identifier of a media message group this message belongs to</td>
+</tr>
+<tr>
+<td>author_signature</td>
+<td>String</td>
+<td><em>Optional</em>. Signature of the post author for messages in channels, or the custom title of an anonymous group administrator</td>
+</tr>
+<tr>
+<td>text</td>
+<td>String</td>
+<td><em>Optional</em>. For text messages, the actual UTF-8 text of the message</td>
+</tr>
+<tr>
+<td>entities</td>
+<td>Array of <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#messageentity">MessageEntity</a></td>
+<td><em>Optional</em>. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text</td>
+</tr>
+<tr>
+<td>link_preview_options</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#linkpreviewoptions">LinkPreviewOptions</a></td>
+<td><em>Optional</em>. Options used for link preview generation for the message, if it is a text message and link preview options were changed</td>
+</tr>
+<tr>
+<td>effect_id</td>
+<td>String</td>
+<td><em>Optional</em>. Unique identifier of the message effect added to the message</td>
+</tr>
+<tr>
+<td>animation</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#animation">Animation</a></td>
+<td><em>Optional</em>. Message is an animation, information about the animation. For backward compatibility, when this field is set, the <em>document</em> field will also be set</td>
+</tr>
+<tr>
+<td>audio</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#audio">Audio</a></td>
+<td><em>Optional</em>. Message is an audio file, information about the file</td>
+</tr>
+<tr>
+<td>document</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#document">Document</a></td>
+<td><em>Optional</em>. Message is a general file, information about the file</td>
+</tr>
+<tr>
+<td>paid_media</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#paidmediainfo">PaidMediaInfo</a></td>
+<td><em>Optional</em>. Message contains paid media; information about the paid media</td>
+</tr>
+<tr>
+<td>photo</td>
+<td>Array of <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#photosize">PhotoSize</a></td>
+<td><em>Optional</em>. Message is a photo, available sizes of the photo</td>
+</tr>
+<tr>
+<td>sticker</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#sticker">Sticker</a></td>
+<td><em>Optional</em>. Message is a sticker, information about the sticker</td>
+</tr>
+<tr>
+<td>story</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#story">Story</a></td>
+<td><em>Optional</em>. Message is a forwarded story</td>
+</tr>
+<tr>
+<td>video</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#video">Video</a></td>
+<td><em>Optional</em>. Message is a video, information about the video</td>
+</tr>
+<tr>
+<td>video_note</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#videonote">VideoNote</a></td>
+<td><em>Optional</em>. Message is a <a target="_blank" rel="noopener" href="https://telegram.org/blog/video-messages-and-telescope">video note</a>, information about the video message</td>
+</tr>
+<tr>
+<td>voice</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#voice">Voice</a></td>
+<td><em>Optional</em>. Message is a voice message, information about the file</td>
+</tr>
+<tr>
+<td>caption</td>
+<td>String</td>
+<td><em>Optional</em>. Caption for the animation, audio, document, paid media, photo, video or voice</td>
+</tr>
+<tr>
+<td>caption_entities</td>
+<td>Array of <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#messageentity">MessageEntity</a></td>
+<td><em>Optional</em>. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption</td>
+</tr>
+<tr>
+<td>show_caption_above_media</td>
+<td>True</td>
+<td><em>Optional</em>. True, if the caption must be shown above the message media</td>
+</tr>
+<tr>
+<td>has_media_spoiler</td>
+<td>True</td>
+<td><em>Optional</em>. <em>True</em>, if the message media is covered by a spoiler animation</td>
+</tr>
+<tr>
+<td>contact</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#contact">Contact</a></td>
+<td><em>Optional</em>. Message is a shared contact, information about the contact</td>
+</tr>
+<tr>
+<td>dice</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#dice">Dice</a></td>
+<td><em>Optional</em>. Message is a dice with random value</td>
+</tr>
+<tr>
+<td>game</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#game">Game</a></td>
+<td><em>Optional</em>. Message is a game, information about the game. <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#games">More about games »</a></td>
+</tr>
+<tr>
+<td>poll</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#poll">Poll</a></td>
+<td><em>Optional</em>. Message is a native poll, information about the poll</td>
+</tr>
+<tr>
+<td>venue</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#venue">Venue</a></td>
+<td><em>Optional</em>. Message is a venue, information about the venue. For backward compatibility, when this field is set, the <em>location</em> field will also be set</td>
+</tr>
+<tr>
+<td>location</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#location">Location</a></td>
+<td><em>Optional</em>. Message is a shared location, information about the location</td>
+</tr>
+<tr>
+<td>new_chat_members</td>
+<td>Array of <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#user">User</a></td>
+<td><em>Optional</em>. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)</td>
+</tr>
+<tr>
+<td>left_chat_member</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#user">User</a></td>
+<td><em>Optional</em>. A member was removed from the group, information about them (this member may be the bot itself)</td>
+</tr>
+<tr>
+<td>new_chat_title</td>
+<td>String</td>
+<td><em>Optional</em>. A chat title was changed to this value</td>
+</tr>
+<tr>
+<td>new_chat_photo</td>
+<td>Array of <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#photosize">PhotoSize</a></td>
+<td><em>Optional</em>. A chat photo was change to this value</td>
+</tr>
+<tr>
+<td>delete_chat_photo</td>
+<td>True</td>
+<td><em>Optional</em>. Service message: the chat photo was deleted</td>
+</tr>
+<tr>
+<td>group_chat_created</td>
+<td>True</td>
+<td><em>Optional</em>. Service message: the group has been created</td>
+</tr>
+<tr>
+<td>supergroup_chat_created</td>
+<td>True</td>
+<td><em>Optional</em>. Service message: the supergroup has been created. This field can’t be received in a message coming through updates, because bot can’t be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup.</td>
+</tr>
+<tr>
+<td>channel_chat_created</td>
+<td>True</td>
+<td><em>Optional</em>. Service message: the channel has been created. This field can’t be received in a message coming through updates, because bot can’t be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel.</td>
+</tr>
+<tr>
+<td>message_auto_delete_timer_changed</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#messageautodeletetimerchanged">MessageAutoDeleteTimerChanged</a></td>
+<td><em>Optional</em>. Service message: auto-delete timer settings changed in the chat</td>
+</tr>
+<tr>
+<td>migrate_to_chat_id</td>
+<td>Integer</td>
+<td><em>Optional</em>. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty&#x2F;silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.</td>
+</tr>
+<tr>
+<td>migrate_from_chat_id</td>
+<td>Integer</td>
+<td><em>Optional</em>. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty&#x2F;silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.</td>
+</tr>
+<tr>
+<td>pinned_message</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#maybeinaccessiblemessage">MaybeInaccessibleMessage</a></td>
+<td><em>Optional</em>. Specified message was pinned. Note that the Message object in this field will not contain further <em>reply_to_message</em> fields even if it itself is a reply.</td>
+</tr>
+<tr>
+<td>invoice</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#invoice">Invoice</a></td>
+<td><em>Optional</em>. Message is an invoice for a <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#payments">payment</a>, information about the invoice. <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#payments">More about payments »</a></td>
+</tr>
+<tr>
+<td>successful_payment</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#successfulpayment">SuccessfulPayment</a></td>
+<td><em>Optional</em>. Message is a service message about a successful payment, information about the payment. <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#payments">More about payments »</a></td>
+</tr>
+<tr>
+<td>refunded_payment</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#refundedpayment">RefundedPayment</a></td>
+<td><em>Optional</em>. Message is a service message about a refunded payment, information about the payment. <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#payments">More about payments »</a></td>
+</tr>
+<tr>
+<td>users_shared</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#usersshared">UsersShared</a></td>
+<td><em>Optional</em>. Service message: users were shared with the bot</td>
+</tr>
+<tr>
+<td>chat_shared</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatshared">ChatShared</a></td>
+<td><em>Optional</em>. Service message: a chat was shared with the bot</td>
+</tr>
+<tr>
+<td>connected_website</td>
+<td>String</td>
+<td><em>Optional</em>. The domain name of the website on which the user has logged in. <a target="_blank" rel="noopener" href="https://core.telegram.org/widgets/login">More about Telegram Login »</a></td>
+</tr>
+<tr>
+<td>write_access_allowed</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#writeaccessallowed">WriteAccessAllowed</a></td>
+<td><em>Optional</em>. Service message: the user allowed the bot to write messages after adding it to the attachment or side menu, launching a Web App from a link, or accepting an explicit request from a Web App sent by the method <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/webapps#initializing-mini-apps">requestWriteAccess</a></td>
+</tr>
+<tr>
+<td>passport_data</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#passportdata">PassportData</a></td>
+<td><em>Optional</em>. Telegram Passport data</td>
+</tr>
+<tr>
+<td>proximity_alert_triggered</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#proximityalerttriggered">ProximityAlertTriggered</a></td>
+<td><em>Optional</em>. Service message. A user in the chat triggered another user’s proximity alert while sharing Live Location.</td>
+</tr>
+<tr>
+<td>boost_added</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatboostadded">ChatBoostAdded</a></td>
+<td><em>Optional</em>. Service message: user boosted the chat</td>
+</tr>
+<tr>
+<td>chat_background_set</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chatbackground">ChatBackground</a></td>
+<td><em>Optional</em>. Service message: chat background set</td>
+</tr>
+<tr>
+<td>forum_topic_created</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#forumtopiccreated">ForumTopicCreated</a></td>
+<td><em>Optional</em>. Service message: forum topic created</td>
+</tr>
+<tr>
+<td>forum_topic_edited</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#forumtopicedited">ForumTopicEdited</a></td>
+<td><em>Optional</em>. Service message: forum topic edited</td>
+</tr>
+<tr>
+<td>forum_topic_closed</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#forumtopicclosed">ForumTopicClosed</a></td>
+<td><em>Optional</em>. Service message: forum topic closed</td>
+</tr>
+<tr>
+<td>forum_topic_reopened</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#forumtopicreopened">ForumTopicReopened</a></td>
+<td><em>Optional</em>. Service message: forum topic reopened</td>
+</tr>
+<tr>
+<td>general_forum_topic_hidden</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#generalforumtopichidden">GeneralForumTopicHidden</a></td>
+<td><em>Optional</em>. Service message: the ‘General’ forum topic hidden</td>
+</tr>
+<tr>
+<td>general_forum_topic_unhidden</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#generalforumtopicunhidden">GeneralForumTopicUnhidden</a></td>
+<td><em>Optional</em>. Service message: the ‘General’ forum topic unhidden</td>
+</tr>
+<tr>
+<td>giveaway_created</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#giveawaycreated">GiveawayCreated</a></td>
+<td><em>Optional</em>. Service message: a scheduled giveaway was created</td>
+</tr>
+<tr>
+<td>giveaway</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#giveaway">Giveaway</a></td>
+<td><em>Optional</em>. The message is a scheduled giveaway message</td>
+</tr>
+<tr>
+<td>giveaway_winners</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#giveawaywinners">GiveawayWinners</a></td>
+<td><em>Optional</em>. A giveaway with public winners was completed</td>
+</tr>
+<tr>
+<td>giveaway_completed</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#giveawaycompleted">GiveawayCompleted</a></td>
+<td><em>Optional</em>. Service message: a giveaway without public winners was completed</td>
+</tr>
+<tr>
+<td>video_chat_scheduled</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#videochatscheduled">VideoChatScheduled</a></td>
+<td><em>Optional</em>. Service message: video chat scheduled</td>
+</tr>
+<tr>
+<td>video_chat_started</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#videochatstarted">VideoChatStarted</a></td>
+<td><em>Optional</em>. Service message: video chat started</td>
+</tr>
+<tr>
+<td>video_chat_ended</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#videochatended">VideoChatEnded</a></td>
+<td><em>Optional</em>. Service message: video chat ended</td>
+</tr>
+<tr>
+<td>video_chat_participants_invited</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#videochatparticipantsinvited">VideoChatParticipantsInvited</a></td>
+<td><em>Optional</em>. Service message: new participants invited to a video chat</td>
+</tr>
+<tr>
+<td>web_app_data</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#webappdata">WebAppData</a></td>
+<td><em>Optional</em>. Service message: data sent by a Web App</td>
+</tr>
+<tr>
+<td>reply_markup</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#inlinekeyboardmarkup">InlineKeyboardMarkup</a></td>
+<td><em>Optional</em>. Inline keyboard attached to the message. buttons are represented as ordinary buttons.<code>login_url``url</code></td>
+</tr>
+</tbody></table>
+<h4 id="MessageId"><a href="#MessageId" class="headerlink" title="MessageId"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#messageid"></a>MessageId</h4><p>This object represents a unique message identifier.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>message_id</td>
+<td>Integer</td>
+<td>Unique message identifier. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent</td>
+</tr>
+</tbody></table>
+<h4 id="InaccessibleMessage"><a href="#InaccessibleMessage" class="headerlink" title="InaccessibleMessage"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#inaccessiblemessage"></a>InaccessibleMessage</h4><p>This object describes a message that was deleted or is otherwise inaccessible to the bot.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>chat</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#chat">Chat</a></td>
+<td>Chat the message belonged to</td>
+</tr>
+<tr>
+<td>message_id</td>
+<td>Integer</td>
+<td>Unique message identifier inside the chat</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Integer</td>
+<td>Always 0. The field can be used to differentiate regular and inaccessible messages.</td>
+</tr>
+</tbody></table>
+<h4 id="MaybeInaccessibleMessage"><a href="#MaybeInaccessibleMessage" class="headerlink" title="MaybeInaccessibleMessage"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#maybeinaccessiblemessage"></a>MaybeInaccessibleMessage</h4><p>This object describes a message that can be inaccessible to the bot. It can be one of</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#inaccessiblemessage">InaccessibleMessage</a></p>
+</li>
+</ul>
+<h4 id="MessageEntity"><a href="#MessageEntity" class="headerlink" title="MessageEntity"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#messageentity"></a>MessageEntity</h4><p>This object represents one special entity in a text message. For example, hashtags, usernames, URLs, etc.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>String</td>
+<td>Type of the entity. Currently, can be “mention” (), “hashtag” ( or ), “cashtag” ( or ), “bot_command” (), “url” (), “email” (), “phone_number” (), “bold” (<strong>bold text</strong>), “italic” (<em>italic text</em>), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable_blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users <a target="_blank" rel="noopener" href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom_emoji” (for inline custom emoji stickers)<code>@username``#hashtag``#hashtag@chatusername``$USD``$USD@chatusername``/start@jobs_bot``https://telegram.org``do-not-reply@telegram.org``+1-212-555-0123</code></td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Integer</td>
+<td>Offset in <a target="_blank" rel="noopener" href="https://core.telegram.org/api/entities#entity-length">UTF-16 code units</a> to the start of the entity</td>
+</tr>
+<tr>
+<td>length</td>
+<td>Integer</td>
+<td>Length of the entity in <a target="_blank" rel="noopener" href="https://core.telegram.org/api/entities#entity-length">UTF-16 code units</a></td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td><em>Optional</em>. For “text_link” only, URL that will be opened after user taps on the text</td>
+</tr>
+<tr>
+<td>user</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#user">User</a></td>
+<td><em>Optional</em>. For “text_mention” only, the mentioned user</td>
+</tr>
+<tr>
+<td>language</td>
+<td>String</td>
+<td><em>Optional</em>. For “pre” only, the programming language of the entity text</td>
+</tr>
+<tr>
+<td>custom_emoji_id</td>
+<td>String</td>
+<td><em>Optional</em>. For “custom_emoji” only, unique identifier of the custom emoji. Use <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#getcustomemojistickers">getCustomEmojiStickers</a> to get full information about the sticker</td>
+</tr>
+</tbody></table>
+<h4 id="sendMessage"><a href="#sendMessage" class="headerlink" title="sendMessage"></a>sendMessage</h4><p>Use this method to send text messages. On success, the sent <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#message">Message</a> is returned.</p>
+<p>使用此方法发送短信。如果成功，则返回发送的Message。</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>business_connection_id</td>
+<td>String</td>
+<td>Optional</td>
+<td>Unique identifier of the business connection on behalf of which the message will be sent</td>
+</tr>
+<tr>
+<td>将代表其发送消息的业务连接的唯一标识符</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>chat_id</td>
+<td>Integer or String</td>
+<td>Yes</td>
+<td>Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</td>
+</tr>
+<tr>
+<td>目标聊天或目标通道的用户名的唯一标识符（格式为@channelusername）</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>message_thread_id</td>
+<td>Integer</td>
+<td>Optional</td>
+<td>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</td>
+</tr>
+<tr>
+<td>论坛的目标消息线程（主题）的唯一标识符；仅适用于论坛超级组</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>Yes</td>
+<td>Text of the message to be sent, 1-4096 characters after entities parsing</td>
+</tr>
+<tr>
+<td>要发送的消息文本，经过实体解析后的1-4096个字符</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>parse_mode</td>
+<td>String</td>
+<td>Optional</td>
+<td>Mode for parsing entities in the message text. See <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</td>
+</tr>
+<tr>
+<td>用于解析消息文本中的实体的模式。有关详细信息，请参阅格式化选项</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>entities</td>
+<td>Array of <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#messageentity">MessageEntity</a></td>
+<td>Optional</td>
+<td>A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></td>
+</tr>
+<tr>
+<td>出现在消息文本中的特殊实体的json序列化列表，可以指定而不是解析_模式</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>link_preview_options</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#linkpreviewoptions">LinkPreviewOptions</a></td>
+<td>Optional</td>
+<td>Link preview generation options for the message</td>
+</tr>
+<tr>
+<td>消息的链接预览生成选项</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>disable_notification</td>
+<td>Boolean</td>
+<td>Optional</td>
+<td>Sends the message <a target="_blank" rel="noopener" href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</td>
+</tr>
+<tr>
+<td>以静默方式发送消息。用户将会收到一个没有声音的通知。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>protect_content</td>
+<td>Boolean</td>
+<td>Optional</td>
+<td>Protects the contents of the sent message from forwarding and saving</td>
+</tr>
+<tr>
+<td>保护已发送邮件的内容不被转发和保存</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>allow_paid_broadcast</td>
+<td>Boolean</td>
+<td>Optional</td>
+<td>Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot’s balance</td>
+</tr>
+<tr>
+<td>设置为True允许每秒发送1000条消息，忽略广播限制，每条消息收费0.1 Telegram Stars。相关的Stars将从bot的余额中扣除</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>message_effect_id</td>
+<td>String</td>
+<td>Optional</td>
+<td>Unique identifier of the message effect to be added to the message; for private chats only</td>
+</tr>
+<tr>
+<td>要添加到消息中的消息效果的唯一标识符；仅限私人聊天</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>reply_parameters</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#replyparameters">ReplyParameters</a></td>
+<td>Optional</td>
+<td>Description of the message to reply to</td>
+</tr>
+<tr>
+<td>要回复的消息的描述</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>reply_markup</td>
+<td><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#inlinekeyboardmarkup">InlineKeyboardMarkup</a> or <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#replykeyboardmarkup">ReplyKeyboardMarkup</a> or <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#replykeyboardremove">ReplyKeyboardRemove</a> or <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#forcereply">ForceReply</a></td>
+<td>Optional</td>
+<td>Additional interface options. A JSON-serialized object for an <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</td>
+</tr>
+<tr>
+<td>附加接口选项。一个json序列化的对象，用于内联键盘、自定义回复键盘、删除回复键盘或强制用户回复的指令</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="html实体消息发送"><a href="#html实体消息发送" class="headerlink" title="html实体消息发送"></a>html实体消息发送</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;bold&lt;/b&gt;, &lt;strong&gt;bold&lt;/strong&gt;</span><br><span class="line">&lt;i&gt;italic&lt;/i&gt;, &lt;em&gt;italic&lt;/em&gt;</span><br><span class="line">&lt;u&gt;underline&lt;/u&gt;, &lt;ins&gt;underline&lt;/ins&gt;</span><br><span class="line">&lt;s&gt;strikethrough&lt;/s&gt;, &lt;strike&gt;strikethrough&lt;/strike&gt;, &lt;del&gt;strikethrough&lt;/del&gt;</span><br><span class="line">&lt;span class=&quot;tg-spoiler&quot;&gt;spoiler&lt;/span&gt;, &lt;tg-spoiler&gt;spoiler&lt;/tg-spoiler&gt;</span><br><span class="line">&lt;b&gt;bold &lt;i&gt;italic bold &lt;s&gt;italic bold strikethrough &lt;span class=&quot;tg-spoiler&quot;&gt;italic bold strikethrough spoiler&lt;/span&gt;&lt;/s&gt; &lt;u&gt;underline italic bold&lt;/u&gt;&lt;/i&gt; bold&lt;/b&gt;</span><br><span class="line">&lt;a href=&quot;http://www.example.com/&quot;&gt;inline URL&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;tg://user?id=123456789&quot;&gt;inline mention of a user&lt;/a&gt;</span><br><span class="line">&lt;tg-emoji emoji-id=&quot;5368324170671202286&quot;&gt;👍&lt;/tg-emoji&gt;</span><br><span class="line">&lt;code&gt;inline fixed-width code&lt;/code&gt;</span><br><span class="line">&lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;</span><br><span class="line">&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;pre-formatted fixed-width code block written in the Python programming language&lt;/code&gt;&lt;/pre&gt;</span><br><span class="line">&lt;blockquote&gt;Block quotation started\nBlock quotation continued\nThe last line of the block quotation&lt;/blockquote&gt;</span><br><span class="line">&lt;blockquote expandable&gt;Expandable block quotation started\nExpandable block quotation continued\nExpandable block quotation continued\nHidden by default part of the block quotation started\nExpandable block quotation continued\nThe last line of the block quotation&lt;/blockquote&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#formatting-options"></a></h4><p><strong>bold</strong>, <strong>bold</strong> <em>italic</em>, <em>italic</em> underline, underline strikethrough, strikethrough, strikethrough spoiler, spoiler <strong>bold <em>italic bold italic bold strikethrough italic bold strikethrough spoiler underline italic bold</em> bold</strong> <a target="_blank" rel="noopener" href="http://www.example.com/">inline URL</a> <a href="tg://user?id=123456789">inline mention of a user</a> ?? <code>inline fixed-width code</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pre-formatted fixed-width code block</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pre-formatted fixed-width code block written <span class="keyword">in</span> the Python programming language</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Block quotation started\nBlock quotation continued\nThe last line of the block quotation</p>
+</blockquote>
+<blockquote>
+<p>Expandable block quotation started\nExpandable block quotation continued\nExpandable block quotation continued\nHidden by default part of the block quotation started\nExpandable block quotation continued\nThe last line of the block quotation</p>
+</blockquote>
+<p>Formatting options</p>
+<p>The Bot API supports basic formatting for messages. You can use bold, italic, underlined, strikethrough, spoiler text, block quotations as well as inline links and pre-formatted code in your bots’ messages. Telegram clients will render them accordingly. You can specify text entities directly, or use markdown-style or HTML-style formatting.</p>
+<p>Note that Telegram clients will display an <strong>alert</strong> to the user before opening an inline link (‘Open this link?’ together with the full URL).</p>
+<p>Message entities can be nested, providing following restrictions are met:<br>- If two entities have common characters, then one of them is fully contained inside another.<br>- <em>bold</em>, <em>italic</em>, <em>underline</em>, <em>strikethrough</em>, and <em>spoiler</em> entities can contain and can be part of any other entities, except <em>pre</em> and <em>code</em>.<br>- <em>blockquote</em> and <em>expandable_blockquote</em> entities can’t be nested.<br>- All other entities can’t contain each other.</p>
+<p>Links can be used to mention a user by their identifier without using a username. Please note:<code>tg://user?id=&lt;user_id&gt;</code></p>
+<ul>
+<li><p>These links will work <strong>only</strong> if they are used inside an inline link or in an inline keyboard button. For example, they will not work, when used in a message text.</p>
+</li>
+<li><p>Unless the user is a member of the chat where they were mentioned, these mentions are only guaranteed to work if the user has contacted the bot in private in the past or has sent a callback query to the bot via an inline button and doesn’t have Forwarded Messages privacy enabled for the bot.</p>
+</li>
+</ul>
+<p>You can find the list of programming and markup languages for which syntax highlighting is supported at <a target="_blank" rel="noopener" href="https://github.com/TelegramMessenger/libprisma#supported-languages">libprisma#supported-languages</a>.</p>
+<h6 id="MarkdownV2-style"><a href="#MarkdownV2-style" class="headerlink" title="MarkdownV2 style"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#markdownv2-style"></a>MarkdownV2 style</h6><p>To use this mode, pass <em>MarkdownV2</em> in the <em>parse_mode</em> field. Use the following syntax in your message:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">*bold \*text*</span><br><span class="line">_italic \*text_</span><br><span class="line">__underline__</span><br><span class="line">~strikethrough~</span><br><span class="line">||spoiler||</span><br><span class="line">*bold _italic bold ~italic bold strikethrough ||italic bold strikethrough spoiler||~ __underline italic bold___ bold*</span><br><span class="line">[inline URL](http://www.example.com/)</span><br><span class="line">[inline mention of a user](tg://user?id=123456789)</span><br><span class="line">![](tg://emoji?id=5368324170671202286)</span><br><span class="line">`inline fixed-width code`</span><br><span class="line">```</span><br><span class="line">pre-formatted fixed-width code block</span><br><span class="line">```</span><br><span class="line">```python</span><br><span class="line">pre-formatted fixed-width code block written in the Python programming language</span><br><span class="line">```</span><br><span class="line">&gt;Block quotation started</span><br><span class="line">&gt;Block quotation continued</span><br><span class="line">&gt;Block quotation continued</span><br><span class="line">&gt;Block quotation continued</span><br><span class="line">&gt;The last line of the block quotation</span><br><span class="line">**&gt;The expandable block quotation started right after the previous block quotation</span><br><span class="line">&gt;It is separated from the previous block quotation by an empty bold entity</span><br><span class="line">&gt;Expandable block quotation continued</span><br><span class="line">&gt;Hidden by default part of the expandable block quotation started</span><br><span class="line">&gt;Expandable block quotation continued</span><br><span class="line">&gt;The last line of the expandable block quotation with the expandability mark||</span><br></pre></td></tr></table></figure>
+
+<p>Please note:</p>
+<ul>
+<li><p>Any character with code between 1 and 126 inclusively can be escaped anywhere with a preceding ‘\‘ character, in which case it is treated as an ordinary character and not a part of the markup. This implies that ‘\‘ character usually must be escaped with a preceding ‘\‘ character.</p>
+</li>
+<li><p>Inside and entities, all ‘`‘ and ‘\‘ characters must be escaped with a preceding ‘\‘ character.<code>pre``code</code></p>
+</li>
+<li><p>Inside the part of the inline link and custom emoji definition, all ‘)’ and ‘\‘ must be escaped with a preceding ‘\‘ character.<code>(...)</code></p>
+</li>
+<li><p>In all other places characters ‘_‘, ‘*‘, ‘[‘, ‘]‘, ‘(‘, ‘)’, ‘~’, ‘`‘, ‘&gt;’, ‘#’, ‘+’, ‘-‘, ‘&#x3D;’, ‘|’, ‘{‘, ‘}’, ‘.’, ‘!’ must be escaped with the preceding character ‘\‘.</p>
+</li>
+<li><p>In case of ambiguity between and entities is always greadily treated from left to right as beginning or end of an entity, so instead of use , adding an empty bold entity as a separator.<code>italic``underline``__``underline``___italic underline___``___italic underline_**__</code></p>
+</li>
+<li><p>A valid emoji must be provided as an alternative value for the custom emoji. The emoji will be shown instead of the custom emoji in places where a custom emoji cannot be displayed (e.g., system notifications) or if the message is forwarded by a non-premium user. It is recommended to use the emoji from the <strong>emoji</strong> field of the custom emoji <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#sticker">sticker</a>.</p>
+</li>
+<li><p>Custom emoji entities can only be used by bots that purchased additional usernames on <a target="_blank" rel="noopener" href="https://fragment.com/">Fragment</a>.</p>
+</li>
+</ul>
+<h6 id="HTML-style"><a href="#HTML-style" class="headerlink" title="HTML style"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#html-style"></a>HTML style</h6><p>To use this mode, pass <em>HTML</em> in the <em>parse_mode</em> field. The following tags are currently supported:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;bold&lt;/b&gt;, &lt;strong&gt;bold&lt;/strong&gt;</span><br><span class="line">&lt;i&gt;italic&lt;/i&gt;, &lt;em&gt;italic&lt;/em&gt;</span><br><span class="line">&lt;u&gt;underline&lt;/u&gt;, &lt;ins&gt;underline&lt;/ins&gt;</span><br><span class="line">&lt;s&gt;strikethrough&lt;/s&gt;, &lt;strike&gt;strikethrough&lt;/strike&gt;, &lt;del&gt;strikethrough&lt;/del&gt;</span><br><span class="line">&lt;span class=&quot;tg-spoiler&quot;&gt;spoiler&lt;/span&gt;, &lt;tg-spoiler&gt;spoiler&lt;/tg-spoiler&gt;</span><br><span class="line">&lt;b&gt;bold &lt;i&gt;italic bold &lt;s&gt;italic bold strikethrough &lt;span class=&quot;tg-spoiler&quot;&gt;italic bold strikethrough spoiler&lt;/span&gt;&lt;/s&gt; &lt;u&gt;underline italic bold&lt;/u&gt;&lt;/i&gt; bold&lt;/b&gt;</span><br><span class="line">&lt;a href=&quot;http://www.example.com/&quot;&gt;inline URL&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;tg://user?id=123456789&quot;&gt;inline mention of a user&lt;/a&gt;</span><br><span class="line">&lt;tg-emoji emoji-id=&quot;5368324170671202286&quot;&gt;&lt;/tg-emoji&gt;</span><br><span class="line">&lt;code&gt;inline fixed-width code&lt;/code&gt;</span><br><span class="line">&lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;</span><br><span class="line">&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;pre-formatted fixed-width code block written in the Python programming language&lt;/code&gt;&lt;/pre&gt;</span><br><span class="line">&lt;blockquote&gt;Block quotation started\nBlock quotation continued\nThe last line of the block quotation&lt;/blockquote&gt;</span><br><span class="line">&lt;blockquote expandable&gt;Expandable block quotation started\nExpandable block quotation continued\nExpandable block quotation continued\nHidden by default part of the block quotation started\nExpandable block quotation continued\nThe last line of the block quotation&lt;/blockquote&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Please note:</p>
+<ul>
+<li><p>Only the tags mentioned above are currently supported.</p>
+</li>
+<li><p>All , and symbols that are not a part of a tag or an HTML entity must be replaced with the corresponding HTML entities ( with , with and with ).<code>&lt;``&gt;``&amp;``&lt;``&amp;lt;``&gt;``&amp;gt;``&amp;``&amp;amp;</code></p>
+</li>
+<li><p>All numerical HTML entities are supported.</p>
+</li>
+<li><p>The API currently supports only the following named HTML entities: , , and .<code>&amp;lt;``&amp;gt;``&amp;amp;``&amp;quot;</code></p>
+</li>
+<li><p>Use nested and tags, to define programming language for entity.<code>pre``code``pre</code></p>
+</li>
+<li><p>Programming language can’t be specified for standalone tags.<code>code</code></p>
+</li>
+<li><p>A valid emoji must be used as the content of the tag. The emoji will be shown instead of the custom emoji in places where a custom emoji cannot be displayed (e.g., system notifications) or if the message is forwarded by a non-premium user. It is recommended to use the emoji from the <strong>emoji</strong> field of the custom emoji <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#sticker">sticker</a>.<code>tg-emoji</code></p>
+</li>
+<li><p>Custom emoji entities can only be used by bots that purchased additional usernames on <a target="_blank" rel="noopener" href="https://fragment.com/">Fragment</a>.</p>
+</li>
+</ul>
+<h6 id="Markdown-style"><a href="#Markdown-style" class="headerlink" title="Markdown style"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#markdown-style"></a>Markdown style</h6><p>This is a legacy mode, retained for backward compatibility. To use this mode, pass <em>Markdown</em> in the <em>parse_mode</em> field. Use the following syntax in your message:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">*bold text*</span><br><span class="line">_italic text_</span><br><span class="line">[inline URL](http://www.example.com/)</span><br><span class="line">[inline mention of a user](tg://user?id=123456789)</span><br><span class="line">`inline fixed-width code`</span><br><span class="line">```</span><br><span class="line">pre-formatted fixed-width code block</span><br><span class="line">```</span><br><span class="line">```python</span><br><span class="line">pre-formatted fixed-width code block written in the Python programming language</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<p>Please note:</p>
+<ul>
+<li><p>Entities must not be nested, use parse mode <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#markdownv2-style">MarkdownV2</a> instead.</p>
+</li>
+<li><p>There is no way to specify “underline”, “strikethrough”, “spoiler”, “blockquote”, “expandable_blockquote” and “custom_emoji” entities, use parse mode <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#markdownv2-style">MarkdownV2</a> instead.</p>
+</li>
+<li><p>To escape characters ‘_‘, ‘*‘, ‘`‘, ‘[‘ outside of an entity, prepend the characters ‘\‘ before them.</p>
+</li>
+<li><p>Escaping inside entities is not allowed, so entity must be closed first and reopened again: use for italic and for bold .<code>_snake_\__case_``snake_case``*2*\**2=4*``2*2=4</code></p>
+</li>
+</ul>
+<h4 id="Paid-Broadcasts"><a href="#Paid-Broadcasts" class="headerlink" title="Paid Broadcasts"></a><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#paid-broadcasts"></a>Paid Broadcasts</h4><p>By default, all bots are able to broadcast up to <a target="_blank" rel="noopener" href="https://core.telegram.org/bots/faq#my-bot-is-hitting-limits-how-do-i-avoid-this">30 messages</a> per second to their users. Developers can increase this limit by enabling <em>Paid Broadcasts</em> in <a target="_blank" rel="noopener" href="https://t.me/botfather">@Botfather</a> - allowing their bot to broadcast <strong>up to 1000 messages</strong> per second.</p>
+<p>Each message broadcasted over the free amount of 30 messages per second incurs a cost of 0.1 Stars per message, paid with Telegram Stars from the bot’s balance. In order to use this feature, a bot must have at least <em>10,000 Stars</em> on its balance.</p>
+<p>Bots with increased limits are only charged for messages that are broadcasted successfully.</p>
+<p><a target="_blank" rel="noopener" href="https://core.telegram.org/bots/api#november-17-2024">Telegram Bot API</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/e6d035b0.html">http://example.com/posts/e6d035b0.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">打包地</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description">打包地,小姐姐,外星,转载,技术文章</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Update"><span class="toc-number">1.</span> <span class="toc-text">Update</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getUpdates"><span class="toc-number">2.</span> <span class="toc-text">getUpdates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#setWebhook"><span class="toc-number">3.</span> <span class="toc-text">setWebhook</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#deleteWebhook"><span class="toc-number">4.</span> <span class="toc-text">deleteWebhook</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getWebhookInfo"><span class="toc-number">5.</span> <span class="toc-text">getWebhookInfo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WebhookInfo"><span class="toc-number">6.</span> <span class="toc-text">WebhookInfo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Available-types"><span class="toc-number"></span> <span class="toc-text">Available types</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#User"><span class="toc-number">1.</span> <span class="toc-text">User</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Chat"><span class="toc-number">2.</span> <span class="toc-text">Chat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ChatFullInfo"><span class="toc-number">3.</span> <span class="toc-text">ChatFullInfo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Message"><span class="toc-number">4.</span> <span class="toc-text">Message</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MessageId"><span class="toc-number">5.</span> <span class="toc-text">MessageId</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#InaccessibleMessage"><span class="toc-number">6.</span> <span class="toc-text">InaccessibleMessage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MaybeInaccessibleMessage"><span class="toc-number">7.</span> <span class="toc-text">MaybeInaccessibleMessage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MessageEntity"><span class="toc-number">8.</span> <span class="toc-text">MessageEntity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sendMessage"><span class="toc-number">9.</span> <span class="toc-text">sendMessage</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html%E5%AE%9E%E4%BD%93%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81"><span class="toc-number"></span> <span class="toc-text">html实体消息发送</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#MarkdownV2-style"><span class="toc-number">1.0.1.</span> <span class="toc-text">MarkdownV2 style</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#HTML-style"><span class="toc-number">1.0.2.</span> <span class="toc-text">HTML style</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Markdown-style"><span class="toc-number">1.0.3.</span> <span class="toc-text">Markdown style</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Paid-Broadcasts"><span class="toc-number">2.</span> <span class="toc-text">Paid Broadcasts</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/" title="一次完整的Hexo写作流程">一次完整的Hexo写作流程</a><time datetime="2024-12-13T00:58:27.000Z" title="发表于 2024-12-13 08:58:27">2024-12-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/hello-world.html" title="Hello World">Hello World</a><time datetime="2024-12-12T08:06:58.656Z" title="发表于 2024-12-12 16:06:58">2024-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2cb4eb41.html" title="hono Cloudflare Workers使用环境变量">hono Cloudflare Workers使用环境变量</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/d966edd5.html" title="SQLite 全文检索：快速高效的文本查询方案">SQLite 全文检索：快速高效的文本查询方案</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/c47f5f83.html" title="SQLite 在SQLite3数据库中识别重复行并删除它们">SQLite 在SQLite3数据库中识别重复行并删除它们</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-color: #0000;"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

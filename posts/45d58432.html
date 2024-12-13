@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>使用PHP创建telegram聊天机器人资料 | 打包地</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="https:&#x2F;&#x2F;tg.yundianrj.com&#x2F;post&#x2F;30.html https:&#x2F;&#x2F;tg.yundianrj.com&#x2F;post&#x2F;26.html https:&#x2F;&#x2F;telegram-bot-sdk.com&#x2F;docs&#x2F;getting-started&#x2F;installation https:&#x2F;&#x2F;www.sunyonghong.com&#x2F;post&#x2F;20240806191.html 前言我使用的是Thin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用PHP创建telegram聊天机器人资料">
+<meta property="og:url" content="http://example.com/posts/45d58432.html">
+<meta property="og:site_name" content="打包地">
+<meta property="og:description" content="https:&#x2F;&#x2F;tg.yundianrj.com&#x2F;post&#x2F;30.html https:&#x2F;&#x2F;tg.yundianrj.com&#x2F;post&#x2F;26.html https:&#x2F;&#x2F;telegram-bot-sdk.com&#x2F;docs&#x2F;getting-started&#x2F;installation https:&#x2F;&#x2F;www.sunyonghong.com&#x2F;post&#x2F;20240806191.html 前言我使用的是Thin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp">
+<meta property="article:published_time" content="2024-11-29T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-13T00:55:06.768Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="打包地,小姐姐,外星,转载,技术文章">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用PHP创建telegram聊天机器人资料",
+  "url": "http://example.com/posts/45d58432.html",
+  "image": "https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp",
+  "datePublished": "2024-11-29T00:00:00.000Z",
+  "dateModified": "2024-12-13T00:55:06.768Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp"><link rel="canonical" href="http://example.com/posts/45d58432.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用PHP创建telegram聊天机器人资料',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://bing.img.run/1366x768.php);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://i0.wp.com/211212.us.kg/wp-content/uploads/2024/12/5555.png.webp" alt="Logo"><span class="site-name">打包地</span></a><a class="nav-page-title" href="/"><span class="site-name">使用PHP创建telegram聊天机器人资料</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">使用PHP创建telegram聊天机器人资料</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-29T00:00:00.000Z" title="发表于 2024-11-29 08:00:00">2024-11-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-13T00:55:06.768Z" title="更新于 2024-12-13 08:55:06">2024-12-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/wenzhang/">wenzhang</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://tg.yundianrj.com/post/30.html">https://tg.yundianrj.com/post/30.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://tg.yundianrj.com/post/26.html">https://tg.yundianrj.com/post/26.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://telegram-bot-sdk.com/docs/getting-started/installation">https://telegram-bot-sdk.com/docs/getting-started/installation</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.sunyonghong.com/post/20240806191.html">https://www.sunyonghong.com/post/20240806191.html</a></p>
+<p>前言我使用的是ThinkPHP 框架,找了一个组件直接使用的。不过，如果自己写原生的对接，其实也很简单，本文我假设我的机器人名字是 abc_bot</p>
+<p>推荐阅读 <a target="_blank" rel="noopener" href="https://core.telegram.org/bots">https://core.telegram.org/bots</a></p>
+<p><strong>组件安装和使用</strong></p>
+<p><a target="_blank" rel="noopener" href="https://telegram-bot-sdk.readme.io/docs">https://telegram-bot-sdk.readme.io/docs</a></p>
+<p>组件的安装和使用，在上面的手册写的很详细，不再复述，API文档可手册是这个<a target="_blank" rel="noopener" href="https://telegram-bot-sdk.readme.io/reference%E3%80%82">https://telegram-bot-sdk.readme.io/reference。</a></p>
+<p>下面说明几个常用的操作</p>
+<p><strong>1.创建机器人</strong></p>
+<p><img src="/images/202405151715755758166054.jpeg" alt="907ae884edd4a83e3f993928ac5e63c33535.jpeg" title="907ae884edd4a83e3f993928ac5e63c33535.jpeg"></p>
+<p>使用浏览器访问 <a target="_blank" rel="noopener" href="https://t.me/botfather">https://t.me/botfather</a> 会自动跳转到 BotFather 的对话框。这个是管理你机器人的命令对话框。与它的对话都要以&#x2F; 开头。有些指令。&#x2F;help,可以看到所有的可用指令</p>
+<p>接收消息的设置</p>
+<p>在 BotFather  对话框操作</p>
+<p>&#x2F;setprivacy</p>
+<p>然后选择一个你的机器人，会弹出对话</p>
+<p>‘Enable’ - your bot will only receive messages that either start with the ‘&#x2F;‘ symbol or mention the bot by username.</p>
+<p>‘Disable’ - your bot will receive all messages that people send to groups.</p>
+<p>Current status is: DISABLED</p>
+<p>选择 `Enable` 则在群消息中只有 `&#x2F;abc_bot 消息`的时候，你才能看到消息</p>
+<p>选择 `Disable` 则可以看到群里的所有消息。</p>
+<p><strong>2. API 操作</strong></p>
+<p>2.1 获取所有的消息</p>
+<p>注意，在执行这个操作的时候，不能有 $telegram-&gt;setWebhook()，因为如果执行过 $telegram-&gt;setWebhook(),新数据其实是会直接返回给你指定的 url 的。如果你有开启，则需要执行 $telegram-&gt;removeWebhook() 关闭</p>
+<p>注意这个操作最多可以获取100条数据，但是有两个参数可以使用</p>
+<p>offset–开始获取数据的id，这个对应的是 update_id</p>
+<p>limit-获取数据的条数</p>
+<p>$key &#x3D; config(‘telegram.bot_token’);</p>
+<p> return $this-&gt;get(‘<a target="_blank" rel="noopener" href="https://api.telegram.org/bot">https://api.telegram.org/bot</a>‘ . $key . ‘&#x2F;getUpdates’);</p>
+<p>或者</p>
+<p>$telegram &#x3D; new Api($key);</p>
+<p>return $telegram-&gt;getUpdates();</p>
+<p>获取到的参数</p>
+<p>message.message_id   - 消息ID，回复或者转发的时候可以用到</p>
+<p>message.from.id  - 发送消息的人的ID</p>
+<p>message.chat.id  - 所在群的ID，如果是个人发送给你的私信，则是个人ID  回复消息时候可以用到</p>
+<p>2.2 发送消息的操作</p>
+<p>$this-&gt;telegram-&gt;sendMessage([</p>
+<p>    ‘chat_id’ &#x3D;&gt; $chat_id, &#x2F;&#x2F; 接收消息的人或者群的id– message.chat.id</p>
+<p>    ‘text’ &#x3D;&gt; $message, &#x2F;&#x2F; 消息内容</p>
+<p>    ‘parse_mode’ &#x3D;&gt; ‘HTML’, &#x2F;&#x2F; 格式，这个可以不要</p>
+<p>]);</p>
+<p>2.3 回复消息的操作</p>
+<p>$this-&gt;telegram-&gt;sendMessage([</p>
+<p>    ‘chat_id’ &#x3D;&gt; $chant_id, &#x2F;&#x2F;  message.chat,id   这个id必须是消息发布的群，不然不能实现回复</p>
+<p>    ‘reply_to_message_id’ &#x3D;&gt; $reply_message_id, &#x2F;&#x2F; message.message_id  聊天中的具体一个消息id</p>
+<p>    ‘text’ &#x3D;&gt; $text, &#x2F;&#x2F;  回复内容</p>
+<p>]);</p>
+<p>2.4 开启网站自动接收消息</p>
+<p>网站必须是 https，路由随便你配置，只要跟你网站的匹配即可</p>
+<p>$telegram-&gt;setWebhook([‘url’ &#x3D;&gt; ‘<a target="_blank" rel="noopener" href="https://xxx.com/telegram/webhook'/]">https://xxx.com/telegram/webhook&#39;\]</a>); </p>
+<p>在开启网站自动接收消息后，执行 $telegram-&gt;getUpdates(); </p>
+<p>然后机器人所在的群，每次有人发消息，都会 post  推送到 `<a target="_blank" rel="noopener" href="https://xxx.com/telegram/webhook/%60,%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%81%9A%E7%9B%B8%E5%BA%94%E7%9A%84%E5%A4%84%E7%90%86">https://xxx.com/telegram/webhook\`,你可以做相应的处理</a></p>
+<p>接收的文字是 message.text</p>
+<p>如果是图片加文字，则是  message.caption </p>
+<p>2.5 关闭网站自动接收消息</p>
+<p>网站必须是 https，路由随便你配置，只要跟你网站的匹配即可</p>
+<p>$telegram-&gt;removeWebhook(); </p>
+<p><strong>纸飞机安装</strong></p>
+<p><strong>1. 安装组件</strong></p>
+<p>composer require irazasyed&#x2F;telegram-bot-sdk ^2.0</p>
+<p><strong>2. 添加路由</strong></p>
+<p>2.1 ‘createWebHook’ &#x3D;&gt; [‘web&#x2F;telegramController&#x2F;createWebHook’, [‘method’ &#x3D;&gt; ‘get’]],&#x2F;&#x2F;创建群对话</p>
+<p>2.2 ‘removeWebHook’ &#x3D;&gt; [‘web&#x2F;telegramController&#x2F;removeWebHook’, [‘method’ &#x3D;&gt; ‘get’]],&#x2F;&#x2F;删除群对话</p>
+<p>2.3 ‘listenWebHook’ &#x3D;&gt; [‘web&#x2F;telegramController&#x2F;listenWebHook’, [‘method’ &#x3D;&gt; ‘post’]],</p>
+<p>2.1 是创建对话的，告诉飞机官网，我要用 2.3 这个路由接收飞机的返回消息</p>
+<p>2.2 基本用不到，是删除对话的，告诉纸飞机  我不再接收飞机推送的消息了</p>
+<p>2.3 的路由 必须是 https </p>
+<p>参考文档 <a target="_blank" rel="noopener" href="https://telegram-bot-sdk.readme.io/docs">https://telegram-bot-sdk.readme.io/docs</a></p>
+<p><strong>3. 创建机器人</strong></p>
+<p>3.1&#x2F;help</p>
+<p>3.2 &#x2F;newbot</p>
+<p>3.3  名字+’_bot’ 结尾  比如 ‘aaa_bot’</p>
+<p>3.4  再次输入 3.3 的名字 ‘aaa_bot’</p>
+<p>这时候，生成的 token  是你需要的  </p>
+<p>3.5  设置，群消息任何一条都接收通知</p>
+<p>&#x2F;setprivacy   </p>
+<p>然后选中你的机器人</p>
+<p>然后选择  DISABLED</p>
+<p>附PHP代码：</p>
+<p>PHP</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">&lt;?phpnamespace app\web\controller;use app\model\Member;use think\Controller;use Telegram\Bot\Api;use think\Db;use think\Log;use app\utils\CacheUtil;class TelegramController extends Controller&#123;</span><br><span class="line">    // 机器人名字  mall_rebate1_bot</span><br><span class="line">    const TG_TOKEN = &#x27;xxxx&#x27;;</span><br><span class="line"></span><br><span class="line">    private $chat_id; //群ID</span><br><span class="line">    private $message_text;//群消息内容</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 错误代码</span><br><span class="line">     * @var int</span><br><span class="line">     */</span><br><span class="line">    protected $errorCode;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 错误信息</span><br><span class="line">     * @var string</span><br><span class="line">     */</span><br><span class="line">    protected $errorMessage = &#x27;&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 返回错误代码</span><br><span class="line">     * @return int</span><br><span class="line">     */</span><br><span class="line">    public function getErrorCode()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;errorCode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 返回错误信息</span><br><span class="line">     * @return string</span><br><span class="line">     */</span><br><span class="line">    public function getErrorMessage()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;errorMessage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 创建对话</span><br><span class="line">     */</span><br><span class="line">    public function createWebHook()</span><br><span class="line">    &#123;</span><br><span class="line">        $telegram = new Api(self::TG_TOKEN);</span><br><span class="line">        return $telegram-&gt;setWebhook([&#x27;url&#x27; =&gt; &#x27;https://xxxx/listenWebHook&#x27;]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 移除对话</span><br><span class="line">     */</span><br><span class="line">    public function removeWebHook()</span><br><span class="line">    &#123;</span><br><span class="line">        $telegram = new Api(self::TG_TOKEN);</span><br><span class="line">        return $telegram-&gt;removeWebhook();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 监听对话</span><br><span class="line">     */</span><br><span class="line">    public function listenWebHook()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        if (!$this-&gt;checkRequest()) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //  加彩金的方法</span><br><span class="line">        if (in_array($this-&gt;chat_id, [&#x27;-11&#x27;, &#x27;-22&#x27;])) &#123;</span><br><span class="line">            $response_text = $this-&gt;transferIn();</span><br><span class="line">            if ($response_text) &#123;</span><br><span class="line">                return $this-&gt;replayMessage($response_text);</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">        &#125; else &#123;//            return $this-&gt;replayMessage($this-&gt;chat_id);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return false;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private function transferIn()</span><br><span class="line">    &#123;</span><br><span class="line">        //  使用空格做区分</span><br><span class="line">        $arr = array_values(array_filter(explode(&quot; &quot;, $this-&gt;message_text)));</span><br><span class="line">        if (count($arr) != 2) &#123;</span><br><span class="line">            return &#x27;格式有误&#x27;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $username = $arr[0];</span><br><span class="line">        $userInfo = Member::getByUsername($username);</span><br><span class="line">        if (!$userInfo) &#123;</span><br><span class="line">            return &#x27;用户不存在&#x27; . $username;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">       // 业务</span><br><span class="line"></span><br><span class="line">        return  &#x27;success&#x27;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 推送消息</span><br><span class="line">     * @param $result</span><br><span class="line">     * @return bool|\Telegram\Bot\Objects\Message</span><br><span class="line">     * @throws \Telegram\Bot\Exceptions\TelegramSDKException</span><br><span class="line">     */</span><br><span class="line">    private function replayMessage($result)</span><br><span class="line">    &#123;</span><br><span class="line">        $telegram = new Api(self::TG_TOKEN);</span><br><span class="line">        try &#123;</span><br><span class="line">            return $telegram-&gt;sendMessage([</span><br><span class="line">                &#x27;chat_id&#x27; =&gt; $this-&gt;chat_id, //  message.chat.id   这个id必须是消息发布的群，不然不能实现回复</span><br><span class="line">                &#x27;text&#x27; =&gt; $result, //  回复内容</span><br><span class="line">                &#x27;parse_mode&#x27; =&gt; &#x27;HTML&#x27;,</span><br><span class="line">            ]);</span><br><span class="line">        &#125; catch (\Exception $exception) &#123;</span><br><span class="line">            $this-&gt;errorCode = -1;</span><br><span class="line">            $this-&gt;errorMessage = $exception-&gt;getMessage(); // 一般来说都是 chat_id 有误</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 检查请求消息</span><br><span class="line">     * @return bool</span><br><span class="line">     */</span><br><span class="line">    private function checkRequest()</span><br><span class="line">    &#123;</span><br><span class="line">        $info = file_get_contents(&#x27;php://input&#x27;);</span><br><span class="line">        $request = [];</span><br><span class="line">        if (json_decode($info)) &#123;</span><br><span class="line">            $request = json_decode($info, 1);</span><br><span class="line">        &#125;//        Log::info(&#x27;222 notify1 start data = &#x27; . json_encode($info));</span><br><span class="line"></span><br><span class="line">        // 1.检查数据格式  是否有 chat_id 和 caption</span><br><span class="line">        if (!isset($request[&#x27;message&#x27;][&#x27;chat&#x27;][&#x27;id&#x27;])) &#123;</span><br><span class="line">            $this-&gt;errorCode = -11;</span><br><span class="line">            $this-&gt;errorMessage = &#x27;chat id 不存在&#x27;;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        if (!isset($request[&#x27;message&#x27;][&#x27;text&#x27;])) &#123;</span><br><span class="line">            $this-&gt;errorCode = -12;</span><br><span class="line">            $this-&gt;errorMessage = &#x27;text不存在&#x27;;</span><br><span class="line">            return false; // 这个不需要输出  不需要处理</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if ($request[&#x27;message&#x27;][&#x27;from&#x27;][&#x27;is_bot&#x27;] == true) &#123;</span><br><span class="line">            return true;//机器人发送的消息  不需要处理</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 群ID 也是chat_id</span><br><span class="line">        $this-&gt;chat_id = $request[&#x27;message&#x27;][&#x27;chat&#x27;][&#x27;id&#x27;];</span><br><span class="line">        $this-&gt;message_text = trim($request[&#x27;message&#x27;][&#x27;text&#x27;]); // 群消息</span><br><span class="line"></span><br><span class="line">        //  有中文  表示是聊天信息</span><br><span class="line">        preg_match(&#x27;/^(\p&#123;Han&#125;)/u&#x27;, $this-&gt;message_text, $result);</span><br><span class="line">        if ($result) &#123;</span><br><span class="line">            $this-&gt;errorCode = -3;</span><br><span class="line">            $this-&gt;errorMessage = &#x27;中文聊天，不需要处理&#x27;;</span><br><span class="line">            return false; // 这条消息不发送给飞机群 所以是 false</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return true;</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>标签: <a target="_blank" rel="noopener" href="https://tg.yundianrj.com/tags-13.html">机器人</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/45d58432.html">http://example.com/posts/45d58432.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">打包地</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i0.wp.com/wp-content/uploads/2024/12/31323.png.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description">打包地,小姐姐,外星,转载,技术文章</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/" title="一次完整的Hexo写作流程">一次完整的Hexo写作流程</a><time datetime="2024-12-13T00:58:27.000Z" title="发表于 2024-12-13 08:58:27">2024-12-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/hello-world.html" title="Hello World">Hello World</a><time datetime="2024-12-12T08:06:58.656Z" title="发表于 2024-12-12 16:06:58">2024-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2cb4eb41.html" title="hono Cloudflare Workers使用环境变量">hono Cloudflare Workers使用环境变量</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/d966edd5.html" title="SQLite 全文检索：快速高效的文本查询方案">SQLite 全文检索：快速高效的文本查询方案</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/c47f5f83.html" title="SQLite 在SQLite3数据库中识别重复行并删除它们">SQLite 在SQLite3数据库中识别重复行并删除它们</a><time datetime="2024-12-08T00:00:00.000Z" title="发表于 2024-12-08 08:00:00">2024-12-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-color: #0000;"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
